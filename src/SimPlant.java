@@ -1,10 +1,10 @@
-class Controller implements Messageable {
+class SimPlant implements Messageable {
 
   public static void main(String[] args) {
-    new Controller();
+    new SimPlant();
   }
 
-  private Controller() {
+  private SimPlant() {
     System.out.println("SimPlant is begin!\n");
     new Thread(new PromptServer(this)).start();
     new Thread(new HttpServer(this)).start();
