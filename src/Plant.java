@@ -1,8 +1,8 @@
 import java.time.Duration;
 import java.time.Instant;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 class Plant {
@@ -70,7 +70,9 @@ class Plant {
 
   private String getStatus() {
     return trackerMap.values().stream()
-               .map(e -> e.getStatus().trim())
+               .map(TrackerInterface::getStatus)
+               .filter(Objects::nonNull)
+               .map(String::trim)
                .collect(Collectors.joining(" "));
   }
 
@@ -82,7 +84,9 @@ class Plant {
 
   private String getCauseOfDeath() {
     return trackerMap.values().stream()
-               .map(e -> e.getCauseOfDeath().trim())
+               .map(TrackerInterface::getCauseOfDeath)
+               .filter(Objects::nonNull)
+               .map(String::trim)
                .collect(Collectors.joining(" "));
   }
 
