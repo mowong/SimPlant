@@ -1,3 +1,21 @@
 Manifest-Version: 1.0
+Class-Path: slf4j-nop-1.7.25.jar spark-core-2.8.0.jar javax.servlet-ap
+ i-3.1.0.jar jetty-io-9.4.12.v20180830.jar jetty-xml-9.4.12.v20180830.
+ jar jetty-http-9.4.12.v20180830.jar jetty-util-9.4.12.v20180830.jar j
+ etty-client-9.4.12.v20180830.jar jetty-server-9.4.12.v20180830.jar je
+ tty-webapp-9.4.12.v20180830.jar jetty-servlet-9.4.12.v20180830.jar we
+ bsocket-api-9.4.12.v20180830.jar jetty-security-9.4.12.v20180830.jar 
+ websocket-client-9.4.12.v20180830.jar websocket-common-9.4.12.v201808
+ 30.jar websocket-server-9.4.12.v20180830.jar websocket-servlet-9.4.12
+ .v20180830.jar twilio-7.30.0-jar-with-dependencies.jar slf4j-nop-1.7.
+ 25.jar spark-core-2.8.0.jar javax.servlet-api-3.1.0.jar jetty-io-9.4.
+ 12.v20180830.jar jetty-xml-9.4.12.v20180830.jar jetty-http-9.4.12.v20
+ 180830.jar jetty-util-9.4.12.v20180830.jar jetty-client-9.4.12.v20180
+ 830.jar jetty-server-9.4.12.v20180830.jar jetty-webapp-9.4.12.v201808
+ 30.jar jetty-servlet-9.4.12.v20180830.jar websocket-api-9.4.12.v20180
+ 830.jar jetty-security-9.4.12.v20180830.jar websocket-client-9.4.12.v
+ 20180830.jar websocket-common-9.4.12.v20180830.jar websocket-server-9
+ .4.12.v20180830.jar websocket-servlet-9.4.12.v20180830.jar twilio-7.3
+ 0.0-jar-with-dependencies.jar
 Main-Class: SimPlant
 
