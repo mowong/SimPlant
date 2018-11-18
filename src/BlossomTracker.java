@@ -1,4 +1,11 @@
 public class BlossomTracker implements TrackerInterface {
+
+  Plant plant;
+
+  BlossomTracker(Plant plant) {
+    this.plant = plant;
+  }
+
   @Override
   public void step() {
 
