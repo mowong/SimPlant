@@ -1,7 +1,9 @@
 import java.time.Duration;
 import java.time.Instant;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Plant {
 
@@ -15,7 +17,7 @@ public class Plant {
 
   Plant() {
     born = Instant.now();
-    trackerMap = new HashMap<>(4);
+    trackerMap = new LinkedHashMap<>(4);
     trackerMap.put(Trackers.WATER, new WaterTracker());
     trackerMap.put(Trackers.FEED, new FeedTracker());
     trackerMap.put(Trackers.SPRAY, new SprayTracker());
@@ -37,10 +39,7 @@ public class Plant {
   }
 
   boolean isDead() {
-    boolean dead = false;
-    for ( TrackerInterface tracker : trackerMap.values() )
-      if ( tracker.isDead() ) dead = true;
-    return dead;
+    return trackerMap.values().stream().anyMatch(TrackerInterface::isDead);
   }
 
   private void update() {
@@ -53,8 +52,7 @@ public class Plant {
   }
 
   private void step() {
-    for ( TrackerInterface tracker : trackerMap.values() )
-      tracker.step();
+    trackerMap.values().forEach(TrackerInterface::step);
   }
 
   private String getAliveMessage() {
@@ -67,10 +65,9 @@ public class Plant {
   }
 
   private String getStatus() {
-    StringBuilder status = new StringBuilder();
-    for ( TrackerInterface tracker : trackerMap.values() )
-      status.append(tracker.getStatus().trim() + " ");
-    return status.toString();
+    return trackerMap.values().stream()
+               .map(e -> e.getStatus().trim())
+               .collect(Collectors.joining(" "));
   }
 
   private String getDeathMessage() {
@@ -80,10 +77,9 @@ public class Plant {
   }
 
   private String getCauseOfDeath() {
-    StringBuilder causeOfDeath = new StringBuilder();
-    for ( TrackerInterface tracker : trackerMap.values() )
-      causeOfDeath.append(tracker.getCauseOfDeath().trim() + " ");
-    return causeOfDeath.toString();
+    return trackerMap.values().stream()
+               .map(e -> e.getCauseOfDeath().trim())
+               .collect(Collectors.joining(" "));
   }
 
 }
