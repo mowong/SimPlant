@@ -1,3 +1,3 @@
-public enum Trackers {
+public enum Actions {
   WATER, FEED, SPRAY, BLOSSOM
 }

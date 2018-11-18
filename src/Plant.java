@@ -13,18 +13,18 @@ class Plant {
   private Instant born;
   private int lastUpdated; // steps since born
 
-  private Map<Trackers, TrackerInterface> trackerMap;
+  private Map<Actions, TrackerInterface> trackerMap;
 
   Plant() {
     born = Instant.now();
     trackerMap = new LinkedHashMap<>(4);
-    trackerMap.put(Trackers.WATER, new WaterTracker());
-    trackerMap.put(Trackers.FEED, new FeedTracker());
-    trackerMap.put(Trackers.SPRAY, new SprayTracker());
-    trackerMap.put(Trackers.BLOSSOM, new BlossomTracker(this));
+    trackerMap.put(Actions.WATER, new WaterTracker());
+    trackerMap.put(Actions.FEED, new FeedTracker());
+    trackerMap.put(Actions.SPRAY, new SprayTracker());
+    trackerMap.put(Actions.BLOSSOM, new BlossomTracker(this));
   }
 
-  String action(Trackers tracker) {
+  String action(Actions tracker) {
     String response;
     update();
     if ( isDead() ) {
