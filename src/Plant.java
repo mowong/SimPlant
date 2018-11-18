@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Plant {
+class Plant {
 
   private static final int STEP_SECONDS = 60 * 60 * 24; // one day
   private static final String STEP_STRING = "days";
@@ -40,6 +40,10 @@ public class Plant {
 
   boolean isDead() {
     return trackerMap.values().stream().anyMatch(TrackerInterface::isDead);
+  }
+
+  boolean isHealthy() {
+    return trackerMap.values().stream().allMatch(TrackerInterface::isHealthy);
   }
 
   private void update() {
