@@ -1,3 +1,3 @@
-public enum Actions {
+public enum PlantActions {
   WATER, FEED, SPRAY, BLOSSOM
 }
