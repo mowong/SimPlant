@@ -1,9 +1,9 @@
 public class BlossomTracker implements TrackerInterface {
 
-  private Plant plant;
+  private PlantModel plant;
   private int stepsHealthy = 0;
 
-  BlossomTracker(Plant plant) {
+  BlossomTracker(PlantModel plant) {
     this.plant = plant;
   }
 
