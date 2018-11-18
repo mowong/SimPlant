@@ -66,13 +66,9 @@ class PlantModel {
   }
 
   private String getDaysOld(boolean isAlive) {
-    return String.join(" ",
-                       "It",
-                       (isAlive ? "is" : "was"),
-                       lastUpdated,
-                       STEP_STRING + (lastUpdated > 1 ? "s" : ""),
-                       "old. "
-    );
+    return "It " + (isAlive ? "is " : "was ") +
+           lastUpdated + " " + STEP_STRING + (lastUpdated == 1 ? " " : "s ") +
+           "old. ";
   }
 
   private String getStatus() {
