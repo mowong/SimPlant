@@ -8,14 +8,14 @@ public class Game {
   String processCommand(String command) {
     switch ( command.substring(0, 3).toLowerCase() ) {
       case "wat":
-        return plant.action(PlantActions.WATER);
+        return plant.action(PlantAction.WATER);
       case "fee":
       case "fer":
-        return plant.action(PlantActions.FEED);
+        return plant.action(PlantAction.FEED);
       case "spr":
       case "bug":
       case "pes":
-        return plant.action(PlantActions.SPRAY);
+        return plant.action(PlantAction.SPRAY);
       case "hel":
         return getHelpMessage();
       default:

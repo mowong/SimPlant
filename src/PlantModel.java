@@ -13,18 +13,18 @@ class PlantModel {
   private Instant born;
   private int lastUpdated; // steps since born
 
-  private Map<PlantActions, TrackerInterface> trackerMap;
+  private Map<PlantAction, TrackerInterface> trackerMap;
 
   PlantModel() {
     born = Instant.now();
     trackerMap = new LinkedHashMap<>(4);
-    trackerMap.put(PlantActions.WATER, new WaterTracker());
-    trackerMap.put(PlantActions.FEED, new FeedTracker());
-    trackerMap.put(PlantActions.SPRAY, new SprayTracker());
-    trackerMap.put(PlantActions.BLOSSOM, new BlossomTracker(this));
+    trackerMap.put(PlantAction.WATER, new WaterTracker());
+    trackerMap.put(PlantAction.FEED, new FeedTracker());
+    trackerMap.put(PlantAction.SPRAY, new SprayTracker());
+    trackerMap.put(PlantAction.BLOSSOM, new BlossomTracker(this));
   }
 
-  String action(PlantActions tracker) {
+  String action(PlantAction action) {
     String response;
     update();
     if ( isDead() ) {
@@ -32,8 +32,8 @@ class PlantModel {
       // doesn't tell game the plant is dead
       // game will have to check by calling isDead()
     } else {
-      response = getAliveMessage();
-      trackerMap.get(tracker).apply();
+      response = getAliveMessage(action);
+      trackerMap.get(action).apply();
     }
     return response;
   }
@@ -59,8 +59,10 @@ class PlantModel {
     trackerMap.values().forEach(TrackerInterface::step);
   }
 
-  private String getAliveMessage() {
-    return "Your plant is " + getDaysOld() + ". " + getStatus();
+  private String getAliveMessage(PlantAction action) {
+    return "Your plant is " + getDaysOld() + ". "
+           + getStatus()
+           + action.getFeedback();
   }
 
   private String getDaysOld() {
