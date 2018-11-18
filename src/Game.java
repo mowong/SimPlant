@@ -6,7 +6,7 @@ public class Game {
   }
 
   String processCommand(String command) {
-    switch ( command.substring(0, 3).toLowerCase() ) {
+    switch ( (command + "   ").substring(0, 3).toLowerCase() ) {
       case "wat":
         return plant.action(PlantAction.WATER);
       case "fee":
@@ -42,7 +42,9 @@ public class Game {
   }
 
   private String getUnknownCommandResponse(String message) {
-    return "I don't know how to '" + message + "'.";
+    return message.length() == 0 ?
+               "Please enter a command." :
+               "I don't know how to '" + message + "'.";
   }
 
 }

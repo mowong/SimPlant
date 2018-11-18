@@ -15,7 +15,7 @@ class SimPlant implements Messageable {
 
   @Override
   public String message(String from, String body) {
-    return "[ from:\"" + from + "\"; " + "body:\"" + body + "\" ]" +
+    return "[" + from + ": " + body + " ] " +
            game.processCommand(body);
   }
 
