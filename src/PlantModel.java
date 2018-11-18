@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 class PlantModel {
 
   private static final int STEP_SECONDS = 60 * 60 * 24; // one day
-  private static final String STEP_STRING = "days";
+  private static final String STEP_STRING = "day";
 
   private Instant born;
   private int lastUpdated; // steps since born
@@ -49,7 +49,7 @@ class PlantModel {
   private void update() {
     long nanosOld = Duration.between(born, Instant.now()).toNanos();
     long stepsOld = (nanosOld / 1000000000) / STEP_SECONDS;
-    while ( lastUpdated <= stepsOld && !isDead() ) {
+    while ( lastUpdated < stepsOld && !isDead() ) {
       step();
       lastUpdated++;
     }

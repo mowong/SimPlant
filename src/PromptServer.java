@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class PromptServer implements Runnable {
 
-  private static final String PHONE_NUMBER = "[PROMPT]";
+  private static final String PHONE_NUMBER = "PROMPT";
 
   private Messageable receiver;
 

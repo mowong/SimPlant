@@ -18,10 +18,10 @@ public interface TrackerInterface {
 
   /**
    * Returns a message regarding the status tracked characteristic.
-   * It should be a complete sentence.
+   * It should be a complete sentence and have a trailing space.
    * It will form part of the complete plant status message.
    * <p>
-   * Example: “There are yellow tips on the upper leaves.”
+   * Example: “There are yellow tips on the upper leaves. ”
    * </p>
    *
    * @return sentence representing the status of the tracked thing
@@ -47,7 +47,7 @@ public interface TrackerInterface {
   /**
    * Returns a message regarding the manner of death
    * caused by tracked characteristic.
-   * The messages should be a complete sentence.
+   * The messages should be a complete sentence and have a trailing space.
    * <p>
    * Example: “The soil was so waterlogged that a gnarly fungus took over.”
    *
