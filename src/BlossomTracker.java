@@ -1,10 +1,13 @@
 public class BlossomTracker implements TrackerInterface {
 
   private Plant plant;
-  private int stepsHealthy = 0;
+  private int stepsHealthy;
+  private boolean blooming;
 
   BlossomTracker(Plant plant) {
     this.plant = plant;
+    this.stepsHealthy = 0;
+    this.blooming = false;
   }
 
   @Override
@@ -41,6 +44,6 @@ public class BlossomTracker implements TrackerInterface {
   }
 
   private boolean isBlooming() {
-    return false;
+    return blooming;
   }
 }
