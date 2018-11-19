@@ -9,7 +9,7 @@ public class BlossomTracker implements TrackerInterface {
 
   @Override
   public void step() {
-
+    if ( plant.isHealthy() ) stepsHealthy++;
   }
 
   @Override
@@ -19,21 +19,28 @@ public class BlossomTracker implements TrackerInterface {
 
   @Override
   public String getStatus() {
-    return null;
+    if ( isBlooming() )
+      return "It is blooming (pretty).";
+    else
+      return null;
   }
 
   @Override
   public boolean isHealthy() {
-    return false;
+    return true; // wont make plant unhealthy
   }
 
   @Override
   public boolean isDead() {
-    return false;
+    return false; // wont make plant dead
   }
 
   @Override
   public String getCauseOfDeath() {
-    return null;
+    return null; // wont make plant dead
+  }
+
+  private boolean isBlooming() {
+    return false;
   }
 }

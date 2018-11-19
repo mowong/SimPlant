@@ -33,7 +33,8 @@ class PlantModel {
       // game will have to check by calling isDead()
     } else {
       response = getAliveMessage(action);
-      trackerMap.get(action).apply();
+      if ( trackerMap.containsKey(action) )
+        trackerMap.get(action).apply();
     }
     return response;
   }

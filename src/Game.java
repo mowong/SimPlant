@@ -1,3 +1,6 @@
+// maybe we don't need a game class???
+// maybe this can all go in the containing class!!!
+// but there is state involved, where will that go?
 public class Game {
   PlantModel plant;
 
@@ -7,16 +10,20 @@ public class Game {
 
   String processCommand(String command) {
     switch ( (command + "   ").substring(0, 3).toLowerCase() ) {
-      case "wat":
+      case "loo": // look
+      case "che": // check
+      case "sta": // status
+        return plant.action(PlantAction.CHECK);
+      case "wat": // water
         return plant.action(PlantAction.WATER);
-      case "fee":
-      case "fer":
+      case "fee": // feed
+      case "fer": // fertilize
         return plant.action(PlantAction.FEED);
-      case "spr":
-      case "bug":
-      case "pes":
+      case "spr": // spray
+      case "bug": // bug-spray
+      case "pes": // pesticide
         return plant.action(PlantAction.SPRAY);
-      case "hel":
+      case "hel": // help
         return getHelpMessage();
       default:
         return getUnknownCommandResponse(command);
