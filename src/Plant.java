@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-class PlantModel {
+class Plant {
 
   private static final int STEP_SECONDS = 60 * 60 * 24; // one day
   private static final String STEP_STRING = "day";
@@ -15,7 +15,7 @@ class PlantModel {
 
   private Map<PlantAction, TrackerInterface> trackerMap;
 
-  PlantModel() {
+  Plant() {
     born = Instant.now();
     trackerMap = new LinkedHashMap<>(4);
     trackerMap.put(PlantAction.WATER, new WaterTracker());
