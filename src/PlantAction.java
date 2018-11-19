@@ -1,8 +1,8 @@
 public enum PlantAction {
   CHECK(""), // No additional feedback for checking status
-  WATER("Your plant has been watered. "),
-  FEED("Your plant has been fertilized. "),
-  SPRAY("Your plant has been sprayed with pesticides. "),
+  WATER("Water applied. "),
+  FEED("Fertilizer applied. "),
+  SPRAY("Pesticides applied. "),
   BLOSSOM("You have somehow made your plant bloom. "); // This shouldn't happen.
 
   private String feedback;

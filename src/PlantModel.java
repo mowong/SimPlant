@@ -62,13 +62,13 @@ class PlantModel {
 
   private String getAliveMessage(PlantAction action) {
     return action.getFeedback() +
-           getStatus().trim() +
-           getDaysOld(true);
+           "Your plant is " + getDaysOld() +
+           getStatus().trim();
+
   }
 
-  private String getDaysOld(boolean isAlive) {
-    return "It " + (isAlive ? "is " : "was ") +
-           lastUpdated + " " + STEP_STRING + (lastUpdated == 1 ? " " : "s ") +
+  private String getDaysOld() {
+    return lastUpdated + " " + STEP_STRING + (lastUpdated == 1 ? " " : "s ") +
            "old. ";
   }
 
@@ -83,7 +83,7 @@ class PlantModel {
   private String getDeathMessage() {
     return "Your plant is dead. " +
            getCauseOfDeath() +
-           getDaysOld(false);
+           "It was " + getDaysOld();
   }
 
   private String getCauseOfDeath() {
