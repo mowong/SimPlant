@@ -27,43 +27,48 @@ public class WaterTracker implements TrackerInterface {
     MORE_XX(100.0, false, true,
             new String[]{
                 "It has drowned. ",
-                "Your plant got so wet it developed a gnarly fungus that ate everything."
+                "Your plant got so wet it developed a gnarly " +
+                "fungus that took over everything. ",
+                "There is so much water it suffocated. "
             }
     ),
     // IDEAL + 2.8 applications
     MORE_02(80.0, false, false,
             new String[]{
-                "Its leaves are drooping quite badly. "
+                "The leaves are drooping quite badly. ",
+                "It's wilting quite a bit. "
+
             }
     ),
     // IDEAL + 1.6 applications
     MORE_01(65.0, false, false,
             new String[]{
-                "Its leaves are a little bit limp. "
+                "The leaves are a little bit limp. ",
+                "It looks a little sad. "
             }
     ),
     // IDEAL + 8 days
     PERFECT(30.0, true, false,
             new String[]{
-                "Its leaves are perfectly perky. "
+                "The leaves are perfectly perky. "
             }
     ),
     // IDEAL + 12 days
     LESS_01(10.0, false, false,
             new String[]{
-                "Its leaves are a little bit limp. "
+                "The leaves are a little bit limp. "
             }
     ),
     // not quite dead
     LESS_02(0.0, false, false,
             new String[]{
-                "Its leaves are drooping quite badly. "
+                "The leaves are drooping quite badly. "
             }
     ),
     // IDEAL +
     LESS_XXX(-1.0, false, true,
              new String[]{
-                 "There is nothing left of it but a dried husk. "
+                 "There is nothing left of it but a dried-out husk. "
              }
     );
 

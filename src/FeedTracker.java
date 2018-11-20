@@ -4,10 +4,10 @@ import java.util.stream.Stream;
 public class FeedTracker implements TrackerInterface {
 
   // LEVEL LOGIC
-  // One application adds the same amount as 8 days removes.
+  // One application adds the same amount as 33 days removes.
   // If the plant is at the ideal level,
   // it wall die after 3 applications at once and
-  // it will die after 16 days without an application.
+  // it will die after 66 days without an application.
 
   private static final double IDEAL_LEVEL = 40.0;
 
@@ -25,11 +25,13 @@ public class FeedTracker implements TrackerInterface {
     MORE_XX(100.0, false, true,
             new String[]{
                 "It has burnt to a crisp. ",
+                "The leaves are all shrivelled up and burnt. "
             }
     ),
     MORE_02(80.0, false, false,
             new String[]{
-                "Some leaves near the top are shrivelled up. "
+                "Some leaves near the top are shrivelled up. " +
+                "The tips of some othere are yellowing"
             }
     ),
     MORE_01(65.0, true, false,
@@ -40,23 +42,26 @@ public class FeedTracker implements TrackerInterface {
     ),
     PERFECT(30.0, true, false,
             new String[]{
-                "The leaves are a nice deep green. "
+                "The leaves are a nice deep green. ",
+                "The leaves look so healthy!"
             }
     ),
     LESS_01(10.0, true, false,
             new String[]{
-                "Some of the bottom leaves are turning yellow. "
+                "Some of the bottom leaves are turning yellow. ",
+                "There's some yellowing on the lower leaves"
             }
     ),
     LESS_02(0.0, false, false,
             new String[]{
-                "The leaves are turning yellow. " +
-                "Some of them are falling off. "
+                "Many leaves are yellow. " +
+                "Some of them are drying up and falling off. "
             }
     ),
     LESS_XXX(-1.0, false, true,
              new String[]{
-                 "The leaves have all brown and crinkly. "
+                 "The leaves have all brown and crinkly. ",
+                 "The leaves are falling off. "
              }
     );
 
