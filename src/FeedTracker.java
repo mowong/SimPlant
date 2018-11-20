@@ -21,6 +21,7 @@ public class FeedTracker implements TrackerInterface {
   private static final double INCREMENT_SD = 1.6; // 8%
 
   private enum Zone {
+    // must be in order from largest to smallest
     // minimum percentage, healthy, deadly, array of status messages
     MORE_XX(100.0, false, true,
             new String[]{
@@ -86,7 +87,7 @@ public class FeedTracker implements TrackerInterface {
                  .of(Zone.values())
                  .filter(g -> percentage > g.getMin())
                  .findFirst()
-                 .orElseThrow(IllegalStateException::new);
+                 .orElseThrow(() -> new IllegalStateException("No valid Zone."));
     }
 
     public boolean isHealthy() {

@@ -21,6 +21,7 @@ public class WaterTracker implements TrackerInterface {
   private static final double INCREMENT_SD = 1; // 8%
 
   private enum Zone {
+    // must be in order from largest to smallest
     // minimum percentage, healthy, deadly, array of status messages
 
     // IDEAL + 4 applications
@@ -93,7 +94,7 @@ public class WaterTracker implements TrackerInterface {
                  .of(Zone.values())
                  .filter(g -> percentage >= g.getMin())
                  .findFirst()
-                 .orElse(null);
+                 .orElseThrow(() -> new IllegalStateException("No valid Zone."));
     }
 
     public boolean isHealthy() {
