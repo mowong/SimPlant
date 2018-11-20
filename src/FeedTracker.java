@@ -31,7 +31,7 @@ public class FeedTracker implements TrackerInterface {
     MORE_02(80.0, false, false,
             new String[]{
                 "Some leaves near the top are shrivelled up. " +
-                "The tips of some othere are yellowing"
+                "The tips of some others are yellowing"
             }
     ),
     MORE_01(65.0, true, false,
