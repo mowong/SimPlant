@@ -24,38 +24,39 @@ public class FeedTracker implements TrackerInterface {
     // minimum percentage, healthy, deadly, array of status messages
     MORE_XX(100.0, false, true,
             new String[]{
-                "It has drowned. ",
-                "Your plant got so wet it developed a gnarly fungus that ate everything."
+                "It has burnt to a crisp. ",
             }
     ),
     MORE_02(80.0, false, false,
             new String[]{
-                "Its leaves are drooping quite badly. "
+                "Some leaves near the top are shrivelled up. "
             }
     ),
     MORE_01(65.0, true, false,
             new String[]{
-                "Its leaves are a little bit limp. "
+                "Some of the top-most leaves are looking a little yellow. " +
+                "The tips of them are also a little burnt."
             }
     ),
     PERFECT(30.0, true, false,
             new String[]{
-                "Its leaves are perfectly perky. "
+                "The leaves are a nice deep green. "
             }
     ),
     LESS_01(10.0, true, false,
             new String[]{
-                "Its leaves are a little bit limp. "
+                "Some of the bottom leaves are turning yellow. "
             }
     ),
     LESS_02(0.0, false, false,
             new String[]{
-                "Its leaves are drooping quite badly. "
+                "The leaves are turning yellow. " +
+                "Some of them are falling off. "
             }
     ),
     LESS_XXX(-1.0, false, true,
              new String[]{
-                 "There is nothing left of it but a dried husk. "
+                 "The leaves have all brown and crinkly. "
              }
     );
 
