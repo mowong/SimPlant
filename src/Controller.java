@@ -17,13 +17,12 @@ class Controller implements Messageable {
   public String message(String from, String body) {
     //// retrieve game from database or whatever
     if ( game == null ) return noGame(from, body); // no current game;
-    return "[" + from + ": " + body + " ] " +
-           game.processCommand(body);
+    return game.processCommand(body);
   }
 
   String endGame() {
-    // stuff to end game goes here
     game = null; // can we return to game's method if it is now null?
+    // IT WORKS!
     return "Your plant has been discarded. Would you like to grow a new plant?";
   }
 
