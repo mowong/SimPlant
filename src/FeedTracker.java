@@ -35,7 +35,7 @@ public class FeedTracker implements TrackerInterface {
     MORE_01(65.0, true, false,
             new String[]{
                 "Some of the top-most leaves are looking a little yellow. " +
-                "The tips of them are also a little burnt."
+                "The tips of them are also a little burnt. "
             }
     ),
     PERFECT(30.0, true, false,

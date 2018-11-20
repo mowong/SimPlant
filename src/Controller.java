@@ -27,7 +27,7 @@ class Controller implements Messageable {
   }
 
   private String noGame(String from, String body) {
-    if ( body.toLowerCase().charAt(0) == 'y' ) {
+    if ( body.length() > 0 && body.toLowerCase().charAt(0) == 'y' ) {
       return newGame(from, body);
     }
     return "Would you like to grow a new plant?";
