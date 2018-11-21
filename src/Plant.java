@@ -28,16 +28,12 @@ class Plant {
   String action(PlantAction action) {
     String response;
     update();
-    if ( isDead() ) {
-      response = getDeathMessage();
-      // doesn't tell game the plant is dead
-      // game will have to check by calling isDead()
-    } else {
-      response = getAliveMessage(action);
-      if ( trackerMap.containsKey(action) )
+    if ( !isDead() && trackerMap.containsKey(action) )
         trackerMap.get(action).apply();
-    }
-    return response;
+    if ( isDead() )
+      return getDeathMessage();
+    else
+      return getAliveMessage(action);
   }
 
   boolean isDead() {

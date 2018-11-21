@@ -2,11 +2,13 @@
 // Has a PlantModel object
 //
 public class Game {
+  String id;
   Plant plant;
   Controller controller;
   GameState gameState;
 
-  Game(Controller controller) {
+  Game(Controller controller, String id) {
+    this.id = id;
     this.plant = new Plant();
     this.controller = controller; // will call this to delete game etc.
   }
@@ -23,16 +25,16 @@ public class Game {
       case "loo":  // look
       case "che":  // check
       case "sta":  // status
-        return plant.action(PlantAction.CHECK);
+        return response(plant.action(PlantAction.CHECK));
       case "wat":  // water
-        return plant.action(PlantAction.WATER);
+        return response(plant.action(PlantAction.WATER));
       case "fee":  // feed
       case "fer":  // fertilize
-        return plant.action(PlantAction.FEED);
+        return response(plant.action(PlantAction.FEED));
       case "spr":  // spray
       case "bug":  // bug-spray
       case "pes":  // pesticide
-        return plant.action(PlantAction.SPRAY);
+        return response(plant.action(PlantAction.SPRAY));
 
       // GAME COMMANDS
 
@@ -58,6 +60,13 @@ public class Game {
         return getUnknownCommandResponse(command);
 
     }
+  }
+
+  private String response(String message) {
+    if ( plant.isDead() ) return controller.gameOver(this, message);
+    return message;
+
+
   }
 
   private String getHelpMessage() {
@@ -122,7 +131,7 @@ public class Game {
   }
 
   private String quitConfirmed() {
-    return controller.endGame();
+    return controller.gameOver(this, "Your plant has been discarded. ");
   }
 
   private String quitAborted() {
