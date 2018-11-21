@@ -1,16 +1,17 @@
 // Parses Incoming Messages
 // Has a PlantModel object
 //
-public class Game {
+class Game {
   String id;
   Plant plant;
-  Controller controller;
-  GameState gameState;
+  private Controller controller;
+  private GameState gameState;
 
   Game(Controller controller, String id) {
     this.id = id;
     this.plant = new Plant();
     this.controller = controller; // will call this to delete game etc.
+    gameState = GameState.ACTIVE;
   }
 
   String getInitialStatus() {

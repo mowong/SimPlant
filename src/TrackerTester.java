@@ -1,101 +1,88 @@
 //TrackerTester.java
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TrackerTester {
 
-  private static WaterTracker waterTracker = new WaterTracker();
-  private static FeedTracker feedTracker = new FeedTracker();
+  private static List<TrackerInterface> trackerList;
 
   public static void main(String[] args) {
 
+    trackerList = new ArrayList<>(2);
+    trackerList.add(new WaterTracker());
+    trackerList.add(new FeedTracker());
+    trackerList.add(new SprayTracker());
+
+    System.out.println("\n\nInitial State of Trackers:");
+    printTrackers();
+
     // Apply #1
-    System.out.println("\nApplication #1");
-    testApply();
+    testApply(1);
 
     // Apply #2
-    System.out.println("\nApplication #2");
-    testApply();
+    testApply(2);
 
     // Step #1
-    System.out.println("\nStep #1");
-    testStep();
+    testStep(1);
 
     // Step #2
-    System.out.println("\nStep #2");
-    testStep();
+    testStep(2);
 
     // Step #3
-    System.out.println("\nStep #3");
-    testStep();
+    testStep(3);
 
     // Step #4
-    System.out.println("\nStep #4");
-    testStep();
+    testStep(4);
 
     // Step #5
-    System.out.println("\nStep #5");
-    testStep();
+    testStep(5);
 
     // Step #6
-    System.out.println("\nStep #6");
-    testStep();
+    testStep(6);
 
     // Step #7
-    System.out.println("\nStep #7");
-    testStep();
+    testStep(7);
 
     // Apply #3
-    System.out.println("\nApplication #3");
-    testApply();
+    testApply(3);
 
     // Apply #4
-    System.out.println("\nApplication #4");
-    testApply();
+    testApply(4);
 
   }
 
-  private static void testApply() {
+  private static void testApply(int num) {
+    System.out.println("\n\nApplication #" + num);
     applyTrackers();
     printTrackers();
-    printTrackerStatus();
-    printTrackerHealth();
   }
 
-  private static void testStep() {
+  private static void testStep(int num) {
+    System.out.println("\n\nStep #" + num);
     stepTrackers();
     printTrackers();
-    printTrackerStatus();
-    printTrackerHealth();
   }
 
+
   private static void applyTrackers() {
-    waterTracker.apply();
-    feedTracker.apply();
+    for ( TrackerInterface tracker : trackerList )
+      tracker.apply();
   }
 
   private static void stepTrackers() {
-    waterTracker.step();
-    feedTracker.step();
+    for ( TrackerInterface tracker : trackerList )
+      tracker.step();
   }
 
   private static void printTrackers() {
-    System.out.println(waterTracker);
-    System.out.println(feedTracker);
+    for ( TrackerInterface tracker : trackerList ) {
+      System.out.println();
+      System.out.println(tracker);
+      System.out.println(tracker.getStatus());
+      System.out.println("Health: " + (tracker.isHealthy() ? "GOOD" : "BAD" ));
+      if ( tracker.isDead() )
+        System.out.println("Dead: " + tracker.getCauseOfDeath());
+    }
   }
-
-  private static void printTrackerStatus() {
-    System.out.println(waterTracker.getStatus());
-    System.out.println(feedTracker.getStatus());
-  }
-
-  private static void printTrackerHealth() {
-    System.out.println("Water level: " + (waterTracker.isHealthy() ? "" : "Not " )+ "Healthy");
-    if ( waterTracker.isDead() )
-      System.out.println(waterTracker.getCauseOfDeath());
-
-    System.out.println("Fertilizer level: " + (feedTracker.isHealthy() ? "" : "Not ") + "Healthy");
-    if ( feedTracker.isDead() )
-      System.out.println(feedTracker.getCauseOfDeath());
-
-  }
-
 }

@@ -38,7 +38,6 @@ public class WaterTracker implements TrackerInterface {
             new String[]{
                 "The leaves are drooping quite badly. ",
                 "It's wilting quite a bit. "
-
             }
     ),
     // IDEAL + 1.6 applications
@@ -92,7 +91,7 @@ public class WaterTracker implements TrackerInterface {
     static Zone getZone(double percentage) {
       return Stream
                  .of(Zone.values())
-                 .filter(g -> percentage >= g.getMin())
+                 .filter(g -> percentage >= g.getMin()) // TODO: maybe > ???
                  .findFirst()
                  .orElseThrow(() -> new IllegalStateException("No valid Zone."));
     }
