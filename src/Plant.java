@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 
 class Plant {
 
-  private static final int STEP_SECONDS = 60 * 60 * 24; // one day
+  //  private static final int STEP_SECONDS = 60 * 60 * 24; // one day
+  private static final int STEP_SECONDS = 2; // for testing
   private static final String STEP_STRING = "day";
 
   private Instant born;
@@ -25,18 +26,13 @@ class Plant {
   }
 
   String action(PlantAction action) {
-    String response;
     update();
-    if ( isDead() ) {
-      response = getDeathMessage();
-      // doesn't tell game the plant is dead
-      // game will have to check by calling isDead()
-    } else {
-      response = getAliveMessage(action);
-      if ( trackerMap.containsKey(action) )
+    if ( !isDead() && trackerMap.containsKey(action) )
         trackerMap.get(action).apply();
-    }
-    return response;
+    if ( isDead() )
+      return getDeathMessage();
+    else
+      return getAliveMessage(action);
   }
 
   boolean isDead() {
@@ -62,14 +58,14 @@ class Plant {
 
   private String getAliveMessage(PlantAction action) {
     return action.getFeedback() +
-           "Your plant is " + getDaysOld() +
+           "Your plant is " + getDaysOld() + ". " +
            getStatus().trim();
 
   }
 
   private String getDaysOld() {
     return lastUpdated + " " + STEP_STRING + (lastUpdated == 1 ? " " : "s ") +
-           "old. ";
+           "old";
   }
 
   private String getStatus() {
@@ -82,12 +78,13 @@ class Plant {
 
   private String getDeathMessage() {
     return "Your plant is dead. " +
-           getCauseOfDeath() +
-           "It was " + getDaysOld();
+           getCauseOfDeath() + " " +
+           "It was " + getDaysOld() + ". ";
   }
 
   private String getCauseOfDeath() {
     return trackerMap.values().stream()
+               .filter(TrackerInterface::isDead)
                .map(TrackerInterface::getCauseOfDeath)
                .filter(Objects::nonNull)
                .map(String::trim)
