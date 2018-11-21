@@ -90,7 +90,7 @@ public class Game {
       case CONFIRM_QUIT:
         return quitConfirmed();
       default:
-        throw new IllegalStateException("Invalid game state");
+        throw new IllegalStateException("Invalid game state.");
     }
   }
 
@@ -103,7 +103,7 @@ public class Game {
       case CONFIRM_QUIT:
         return quitAborted();
       default:
-        throw new IllegalStateException("Invalid game state");
+        throw new IllegalStateException("Invalid game state.");
     }
 
   }
