@@ -113,7 +113,7 @@ public class WaterTracker implements TrackerInterface {
   private Random random = new Random();
   private double level; // percentage
 
-  public WaterTracker() {
+  WaterTracker() {
     level = IDEAL_LEVEL;
   }
 
@@ -147,5 +147,10 @@ public class WaterTracker implements TrackerInterface {
   @Override
   public String getCauseOfDeath() {
     return Zone.getZone(level).getStatus();
+  }
+
+  @Override
+  public String toString() {
+    return String.format("Water level: %.2f",level);
   }
 }
