@@ -7,11 +7,11 @@ public class SprayTracker implements TrackerInterface {
   private static final int MAX_MULTIPLIER = 2;
   private static final int BUGGY_STILL_HEALTHY = 10;
   private static final int DEAD_FROM_BUGS = 100;
-  private static final double PROBABILITY_OF_NEW_BUGS = 0.10;
-  private static final double PROBABILITY_OF_MORE_BUGS = 0.15;
+  private static final float PROBABILITY_OF_NEW_BUGS = 0.10F;
+  private static final float PROBABILITY_OF_MORE_BUGS = 0.15F;
 
   private int sprayLevel;
-  private double numberOfBugs;
+  private float numberOfBugs;
 
   private Random random = new Random();
 
@@ -57,20 +57,20 @@ public class SprayTracker implements TrackerInterface {
 
   // if spray level is below a certain point bugs might appear
   private void bugCaller() {
-    if ( random.nextDouble() < PROBABILITY_OF_NEW_BUGS )
+    if ( random.nextFloat() < PROBABILITY_OF_NEW_BUGS )
       numberOfBugs = 1; // will multiply quickly
   }
 
   // should only be called weekly, once a week? - put in random chance
   private void bugMultiplier() {
-    if ( random.nextDouble() < PROBABILITY_OF_MORE_BUGS )
-      numberOfBugs *= (random.nextDouble() * MAX_MULTIPLIER + 1);
+    if ( random.nextFloat() < PROBABILITY_OF_MORE_BUGS )
+      numberOfBugs *= (random.nextFloat() * MAX_MULTIPLIER + 1);
   }
 
   // kill some bugs (if there are any)
   private void bugKiller() {
     if ( hasBugs() )
-      numberOfBugs *= random.nextDouble();
+      numberOfBugs *= random.nextFloat();
   }
 
   @Override
