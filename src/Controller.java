@@ -5,9 +5,10 @@ class Controller implements Messageable {
   }
 
   // this will be replaced by a game for each phone number
-  public Game game;
+  private GameLoader gameLoader;
 
   private Controller() {
+    gameLoader = new GameLoader(this);
     System.out.println("SimPlant is begin!\n");
     new Thread(new PromptServer(this)).start();
     new Thread(new HttpServer(this)).start();
@@ -15,15 +16,21 @@ class Controller implements Messageable {
 
   @Override
   public String message(String from, String body) {
-    //// retrieve game from database or whatever
+    // retrieve game from database or whatever
+    Game game = gameLoader.getGame(from);
     if ( game == null ) return noGame(from, body); // no current game;
+    // process the incoming message
     return game.processCommand(body);
   }
 
-  String endGame() {
-    game = null; // can we return to game's method if it is now null?
-    // IT WORKS!
+  String endGame(Game game) {
+    gameLoader.deleteGame(game.id); // can we return to game's method if it is now null?
     return "Your plant has been discarded. Would you like to grow a new plant?";
+  }
+
+  String gameOver(Game game, String message) {
+    gameLoader.deleteGame(game.id); // can we return to game's method if it is now null?
+    return message + "Would you like to grow a new plant?";
   }
 
   private String noGame(String from, String body) {
@@ -34,7 +41,7 @@ class Controller implements Messageable {
   }
 
   private String newGame(String from, String body) {
-    game = new Game(this);
+    Game game = gameLoader.newGame(from);
     return game.getInitialStatus();
   }
 
