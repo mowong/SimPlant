@@ -56,4 +56,7 @@ public interface TrackerInterface {
    */
   String getCauseOfDeath();
 
+
+
+  String getLevelCode();
 }

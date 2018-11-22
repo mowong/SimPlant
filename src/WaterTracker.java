@@ -152,4 +152,10 @@ public class WaterTracker implements TrackerInterface {
   public String toString() {
     return String.format("Water level: %.2f",level);
   }
+
+  @Override
+  public String getLevelCode() {
+    return String.format("w%02.0f",level);
+  }
+
 }
