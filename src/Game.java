@@ -20,6 +20,7 @@ public class Game {
 
       // PLANT COMMANDS
 
+      case "   ":  // now the default instruction
       case "loo":  // look
       case "che":  // check
       case "sta":  // status
