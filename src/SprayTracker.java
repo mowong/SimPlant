@@ -92,7 +92,7 @@ public class SprayTracker implements TrackerInterface {
 
   @Override
   public String getLevelCode() {
-    return String.format("s%02.0f",numberOfBugs);
+    return String.format("s%02d,p%02.0f",sprayLevel,numberOfBugs);
   }
 
 }
