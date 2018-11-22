@@ -91,7 +91,7 @@ public class WaterTracker implements TrackerInterface {
     static Zone getZone(double percentage) {
       return Stream
                  .of(Zone.values())
-                 .filter(g -> percentage >= g.getMin()) // TODO: maybe > ???
+                 .filter(g -> percentage > g.getMin())
                  .findFirst()
                  .orElseThrow(() -> new IllegalStateException("No valid Zone."));
     }
