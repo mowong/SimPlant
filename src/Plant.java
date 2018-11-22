@@ -28,7 +28,7 @@ class Plant {
   String action(PlantAction action) {
     update();
     if ( !isDead() && trackerMap.containsKey(action) )
-        trackerMap.get(action).apply();
+      trackerMap.get(action).apply();
     if ( isDead() )
       return getDeathMessage();
     else
@@ -57,7 +57,8 @@ class Plant {
   }
 
   private String getAliveMessage(PlantAction action) {
-    return action.getFeedback() +
+    return getDebugStatus() +
+           action.getFeedback() +
            "Your plant is " + getDaysOld() + ". " +
            getStatus().trim();
 
@@ -77,7 +78,8 @@ class Plant {
   }
 
   private String getDeathMessage() {
-    return "Your plant is dead. " +
+    return getDebugStatus() +
+           "Your plant is dead. " +
            getCauseOfDeath() + " " +
            "It was " + getDaysOld() + ". ";
   }
@@ -91,4 +93,12 @@ class Plant {
                .collect(Collectors.joining(" "));
   }
 
+  private String getDebugStatus() {
+    // return "";
+    return trackerMap.values().stream()
+               .map(TrackerInterface::getLevelCode)
+               .filter(Objects::nonNull)
+               .map(String::trim)
+               .collect(Collectors.joining(",","[","] "));
+  }
 }

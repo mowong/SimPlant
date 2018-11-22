@@ -12,7 +12,11 @@ public class BlossomTracker implements TrackerInterface {
 
   @Override
   public void step() {
-    if ( plant.isHealthy() ) stepsHealthy++;
+    if ( plant.isHealthy() )
+      stepsHealthy++;
+    else
+      stepsHealthy = 0;
+
   }
 
   @Override
@@ -45,5 +49,9 @@ public class BlossomTracker implements TrackerInterface {
 
   private boolean isBlooming() {
     return blooming;
+  }
+
+  public String getLevelCode() {
+    return String.format("b%02.0f,h%02d",0.0,stepsHealthy);
   }
 }
