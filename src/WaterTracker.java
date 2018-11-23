@@ -38,7 +38,6 @@ public class WaterTracker implements TrackerInterface {
             new String[]{
                 "The leaves are drooping quite badly. ",
                 "It's wilting quite a bit. "
-
             }
     ),
     // IDEAL + 1.6 applications
@@ -113,7 +112,7 @@ public class WaterTracker implements TrackerInterface {
   private Random random = new Random();
   private double level; // percentage
 
-  public WaterTracker() {
+  WaterTracker() {
     level = IDEAL_LEVEL;
   }
 
@@ -148,4 +147,15 @@ public class WaterTracker implements TrackerInterface {
   public String getCauseOfDeath() {
     return Zone.getZone(level).getStatus();
   }
+
+  @Override
+  public String toString() {
+    return String.format("Water level: %.2f",level);
+  }
+
+  @Override
+  public String getLevelCode() {
+    return String.format("w%02.0f",level);
+  }
+
 }
