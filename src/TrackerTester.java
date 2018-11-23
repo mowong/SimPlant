@@ -12,7 +12,7 @@ public class TrackerTester {
     trackerList = new ArrayList<>(2);
     trackerList.add(new WaterTracker());
     trackerList.add(new FeedTracker());
-    trackerList.add(new SprayTracker());
+    trackerList.add(new BugTracker());
 
     System.out.println("\n\nInitial State of Trackers:");
     printTrackers();
