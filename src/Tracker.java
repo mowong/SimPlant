@@ -19,6 +19,14 @@ class Tracker implements TrackerInterface {
     level = levels.ideal;
   }
 
+  double getLevel() {
+    return level;
+  }
+
+  void setLevel(double level) {
+    this.level = level;
+  }
+
   @Override
   public void step() {
     level -= levels.decrement + levels.decrementDev * random.nextGaussian();
