@@ -171,4 +171,10 @@ public class SprayTracker implements TrackerInterface {
   public String getCauseOfDeath() {
     return "The plant was eaten up by bugs.";
   }
+
+  @Override
+  public String getLevelCode() {
+    return String.format("s%02d,p%02.0f",sprayLevel,numberOfBugs);
+  }
+
 }

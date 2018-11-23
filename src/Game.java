@@ -23,6 +23,7 @@ class Game {
 
       // PLANT COMMANDS
 
+      case "   ":  // EMPTY MESSAGE
       case "loo":  // look
       case "che":  // check
       case "sta":  // status

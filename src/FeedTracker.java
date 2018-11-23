@@ -147,4 +147,9 @@ public class FeedTracker implements TrackerInterface {
   public String toString() {
     return String.format("Fertilizer level: %.2f",level);
   }
+
+  @Override
+  public String getLevelCode() {
+    return String.format("f%02.0f",level);
+  }
 }

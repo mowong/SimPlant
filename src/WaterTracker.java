@@ -91,7 +91,7 @@ public class WaterTracker implements TrackerInterface {
     static Zone getZone(double percentage) {
       return Stream
                  .of(Zone.values())
-                 .filter(g -> percentage >= g.getMin()) // TODO: maybe > ???
+                 .filter(g -> percentage > g.getMin())
                  .findFirst()
                  .orElseThrow(() -> new IllegalStateException("No valid Zone."));
     }
@@ -152,4 +152,10 @@ public class WaterTracker implements TrackerInterface {
   public String toString() {
     return String.format("Water level: %.2f",level);
   }
+
+  @Override
+  public String getLevelCode() {
+    return String.format("w%02.0f",level);
+  }
+
 }
