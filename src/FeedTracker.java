@@ -106,7 +106,7 @@ public class FeedTracker implements TrackerInterface {
   private Random random = new Random();
   private double level; // percentage
 
-  public FeedTracker() {
+  FeedTracker() {
     level = IDEAL_LEVEL;
   }
 
@@ -140,5 +140,15 @@ public class FeedTracker implements TrackerInterface {
   @Override
   public String getCauseOfDeath() {
     return Zone.getZone(level).getStatus();
+  }
+
+  @Override
+  public String toString() {
+    return String.format("Fertilizer level: %.2f",level);
+  }
+
+  @Override
+  public String getLevelCode() {
+    return String.format("f%02.0f",level);
   }
 }
