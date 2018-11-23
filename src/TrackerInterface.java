@@ -57,8 +57,11 @@ public interface TrackerInterface {
   String getCauseOfDeath();
 
   /**
-   * gets the level of the tracker, prefixed by an identifying mark
-   * @return the level with a character identifying the tracker
+   * get tracker information
+   *
+   * @return identifying character
+   *     followed by a two-digit level
+   *     followed by a code representing the currnet zone
    */
   String getLevelCode();
 }
