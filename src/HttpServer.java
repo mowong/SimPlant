@@ -1,4 +1,4 @@
-import com.twilio.twiml.MessagingResponse;
+/*import com.twilio.twiml.MessagingResponse;
 import com.twilio.twiml.messaging.Body;
 import com.twilio.twiml.messaging.Message;
 
@@ -50,3 +50,4 @@ class HttpServer implements Runnable{
   }
 
 }
+*/

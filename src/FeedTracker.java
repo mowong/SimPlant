@@ -31,37 +31,38 @@ public class FeedTracker implements TrackerInterface {
     ),
     MORE_02(80.0, false, false,
             new String[]{
-                "Some leaves near the top are shrivelled up. " +
-                "The tips of some others are yellowing"
+                "Some leaves near the top are shrivelled up. ",
+                "The tips of some leaves are yellowing. "
             }
     ),
     MORE_01(65.0, true, false,
             new String[]{
-                "Some of the top-most leaves are looking a little yellow. " +
-                "The tips of them are also a little burnt. "
+                "Some of the top-most leaves are looking a little yellow. ",
+                "The tips of some leaves are a little burnt. "
             }
     ),
     PERFECT(30.0, true, false,
             new String[]{
-                "The leaves are a nice deep green. ",
-                "The leaves look so healthy!"
+                "The leaves are a nice deep green. "//,
+//                "The leaves look so healthy! "
             }
     ),
     LESS_01(10.0, true, false,
             new String[]{
                 "Some of the bottom leaves are turning yellow. ",
-                "There's some yellowing on the lower leaves"
+                "There's some yellowing on the lower leaves. "
             }
     ),
     LESS_02(0.0, false, false,
             new String[]{
                 "Many leaves are yellow. " +
-                "Some of them are drying up and falling off. "
+                "Some of them are drying up and falling off. ", 
+                "Your plant is looking pale. "
             }
     ),
     LESS_XXX(-1.0, false, true,
              new String[]{
-                 "The leaves have all brown and crinkly. ",
+                 "The leaves are all yellow and crinkly. ",
                  "The leaves are falling off. "
              }
     );
