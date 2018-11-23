@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class SprayTracker extends Tracker {
+public class BugTracker extends Tracker {
 
   private static final Tracker.Levels LEVELS = new Tracker.Levels(
       0.0,
@@ -58,7 +58,7 @@ public class SprayTracker extends Tracker {
   private int spray;
   private Random random = new Random();
 
-  SprayTracker() {
+  BugTracker() {
     super(LEVELS, ZONES);
     spray = STARTING_SPRAY_AMOUNT;
   }
