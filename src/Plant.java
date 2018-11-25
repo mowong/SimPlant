@@ -9,7 +9,7 @@ class Plant {
 
   //  private static final int STEP_SECONDS = 60 * 60 * 24; // one day
   private static final int STEP_SECONDS = 2; // for testing
-  private static final String STEP_STRING = "day";
+  static final String STEP_STRING = "day";
 
   private Instant born;
   private int lastUpdated; // steps since born
@@ -65,8 +65,11 @@ class Plant {
   }
 
   private String getDaysOld() {
-    return lastUpdated + " " + STEP_STRING + (lastUpdated == 1 ? " " : "s ") +
-           "old";
+    return lastUpdated == 0 ?
+               "less than a day old." :
+               (lastUpdated + " " + STEP_STRING +
+                (lastUpdated == 1 ? " " : "s ") + "old"
+               );
   }
 
   private String getStatus() {
@@ -99,6 +102,6 @@ class Plant {
                .map(TrackerInterface::getLevelCode)
                .filter(Objects::nonNull)
                .map(String::trim)
-               .collect(Collectors.joining(",","[","] "));
+               .collect(Collectors.joining(",", "[", "] "));
   }
 }

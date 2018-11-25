@@ -74,9 +74,10 @@ public class BloomTracker implements TrackerInterface {
     if ( isBlooming() )
       return "It has been blooming for " +
              (stepsBlooming == 0 ?
-                  " less than a day. " :
-                  stepsBlooming + " days. "
-             ) +
+                  " less than a " + Plant.STEP_STRING :
+                  stepsBlooming + " " + Plant.STEP_STRING +
+                  (stepsBlooming == 1 ? "" : "s")
+             ) + ". " +
              COMMENTS[new Random().nextInt(COMMENTS.length)];
     else
       return null; // no status message if not blooming
