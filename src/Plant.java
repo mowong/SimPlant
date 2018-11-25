@@ -22,7 +22,7 @@ class Plant {
     trackerMap.put(PlantAction.WATER, new WaterTracker());
     trackerMap.put(PlantAction.FEED, new FeedTracker());
     trackerMap.put(PlantAction.SPRAY, new BugTracker());
-    trackerMap.put(PlantAction.BLOSSOM, new BlossomTracker(this));
+    trackerMap.put(PlantAction.BLOOM, new BloomTracker(this));
   }
 
   String action(PlantAction action) {
