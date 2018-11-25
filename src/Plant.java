@@ -66,7 +66,7 @@ class Plant {
 
   private String getDaysOld() {
     return lastUpdated == 0 ?
-               "less than a day old." :
+               "less than a day old" :
                (lastUpdated + " " + STEP_STRING +
                 (lastUpdated == 1 ? " " : "s ") + "old"
                );
