@@ -1,0 +1,71 @@
+
+body{
+  text-align: center;
+  background-color: #CCC;
+}
+
+label {
+  font-size: smaller;
+  display: none;
+  
+}
+
+form {
+  width:100%;
+}
+
+#number, #server{
+  font-size: larger;
+  text-align: center;
+  background: transparent;
+  border: none;
+  padding:5px;
+}
+
+#container{
+  margin-top:50px;
+  position:absolute;
+  left:50%;
+  margin-left:-190px;
+  width:350px;
+  background-color: #EEE;
+  padding:10px 30px 20px 30px;
+  border:1px solid #DDD;
+  border-radius: 20px;
+  
+  text-align: left;
+}
+
+#submit-button {
+  display: none;
+}
+
+iframe, textarea {
+  position:relative;
+  left:-1px;
+  width:  100%;
+  height: 200px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  padding:0;
+  margin-bottom:10px;
+}
+
+
+textarea{
+  position:relative;
+  left:60px;
+  height: 100px;
+  width: 210px;
+  resize: none;
+  font-size: larger;
+  padding:10px;
+}
+
+input{
+  position:relative;
+  left:60px;
+  width: 210px;
+  padding:0 10px;
+}
+
