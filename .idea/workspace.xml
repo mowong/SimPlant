@@ -6,17 +6,20 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c3d7b1b-482b-49d0-a554-69861e41e536" name="Default Changelist" comment="Add utils for deployment, web-interface, &amp; running jar on server">
-      <change afterPath="$PROJECT_DIR$/util/deploy_jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/deploy_web-interface" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/mnrva/simplant_bg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/mnrva/web-interface/blank.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/mnrva/web-interface/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/mnrva/web-interface/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/mnrva/web-interface/response.css" afterDir="false" />
+    <list default="true" id="2c3d7b1b-482b-49d0-a554-69861e41e536" name="Default Changelist" comment="Reorganize utils and make shells scripts executable">
+      <change afterPath="$PROJECT_DIR$/utils/deploy_daemon.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/deploy_web-interface.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/server/simplant-daemon.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/server/web-interface/jquery-3.3.1.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/simplant_jar/copy2mnrva" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/simplant_jar/runSimplantInBackground" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/simplant_jar/simplant.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/simplant_jar/simplant.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/deploy_jar" beforeDir="false" afterPath="$PROJECT_DIR$/utils/deploy_jar.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/deploy_web-interface" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/mnrva/simplant_bg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/mnrva/web-interface/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/utils/server/web-interface/blank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/mnrva/web-interface/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/utils/server/web-interface/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/mnrva/web-interface/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/server/web-interface/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/mnrva/web-interface/response.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/server/web-interface/response.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,28 +78,34 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="copy2mnrva" value="2" />
-          <entry key="html" value="2" />
+          <entry key="deploy_jar" value="1" />
+          <entry key="deploy_web-interface" value="1" />
+          <entry key="html" value="3" />
           <entry key="java" value="24" />
           <entry key="runSimplantInBackground" value="1" />
+          <entry key="sh" value="1" />
+          <entry key="simplant_bg" value="1" />
           <entry key="web-interface-deploy" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="HTML" value="2" />
+          <entry key="HTML" value="3" />
           <entry key="JAVA" value="24" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PLAIN_TEXT" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="copy2mnrva" value="31" />
+          <entry key="deploy_web-interface" value="34" />
           <entry key="dummy" value="50" />
           <entry key="html" value="186" />
           <entry key="java" value="2601" />
           <entry key="runSimplantInBackground" value="30" />
-          <entry key="txt" value="500" />
+          <entry key="sh" value="181" />
+          <entry key="txt" value="560" />
           <entry key="web-interface-deploy" value="29" />
         </counts>
       </usages-collector>
@@ -104,7 +113,7 @@
         <counts>
           <entry key="HTML" value="186" />
           <entry key="JAVA" value="2601" />
-          <entry key="PLAIN_TEXT" value="640" />
+          <entry key="PLAIN_TEXT" value="915" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -119,19 +128,46 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/deploy_web-interface">
+        <entry file="file://$PROJECT_DIR$/utils/deploy_web-interface.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="47" selection-start-column="47" selection-end-column="47" />
+            <state relative-caret-position="95">
+              <caret line="5" column="7" selection-start-line="5" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/server/web-interface/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/util/mnrva/web-interface/index.html">
+        <entry file="file://$PROJECT_DIR$/utils/deploy_daemon.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+            <state relative-caret-position="95">
+              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/deploy_jar.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/server/simplant-daemon.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -182,6 +218,14 @@
         <option value="$PROJECT_DIR$/util/web-interface/index.html" />
         <option value="$PROJECT_DIR$/util/web-interface-deploy" />
         <option value="$PROJECT_DIR$/util/mnrva/web-interface/index.html" />
+        <option value="$PROJECT_DIR$/util/deploy_web-interface" />
+        <option value="$PROJECT_DIR$/util/deploy_jar" />
+        <option value="$PROJECT_DIR$/util/server/simplant_bg" />
+        <option value="$PROJECT_DIR$/util/server/simplant-bg.sh" />
+        <option value="$PROJECT_DIR$/util/deploy_jar.sh" />
+        <option value="$PROJECT_DIR$/util/deploy_web-interface.sh" />
+        <option value="$PROJECT_DIR$/utils/server/web-interface/index.html" />
+        <option value="$PROJECT_DIR$/utils/deploy_daemon.sh" />
       </list>
     </option>
   </component>
@@ -230,20 +274,13 @@
             <path>
               <item name="SimPlant" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimPlant" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimPlant" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimPlant" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="mnrva" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimPlant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimPlant" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="mnrva" type="462c0819:PsiDirectoryNode" />
-              <item name="web-interface" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimPlant" type="b2602c69:ProjectViewProjectNode" />
@@ -259,14 +296,16 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543108144652" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543109136789" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/util" />
       <recent name="$PROJECT_DIR$/etc" />
     </key>
@@ -336,7 +375,7 @@
       <workItem from="1542936774949" duration="770000" />
       <workItem from="1543003557980" duration="779000" />
       <workItem from="1543018850068" duration="395000" />
-      <workItem from="1543099583485" duration="1351000" />
+      <workItem from="1543099583485" duration="2289000" />
     </task>
     <task id="LOCAL-00001" summary="Afford multiple games, fix death message&#10;&#10;When plant dies the game now asks if you want to play again.&#10;TODO: refactor controller/game/plant.&#10;It has gotten a bit noodly.">
       <created>1542831605567</created>
@@ -436,11 +475,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543013132165</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add utils for deployment, web-interface, &amp; running jar on server">
+      <created>1543108156021</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1543108156021</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32868000" />
+    <option name="totallyTimeSpent" value="33806000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -462,18 +508,19 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3210191" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299363" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3299363" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.3299363" />
+      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3299363" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3299363" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3210191" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.3299363" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299363" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3299363" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3299363" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -536,7 +583,8 @@
     <MESSAGE value="Add tools and web-interface" />
     <MESSAGE value="Rename utility directory" />
     <MESSAGE value="Add utils for deployment, web-interface, &amp; running jar on server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add utils for deployment, web-interface, &amp; running jar on server" />
+    <MESSAGE value="Reorganize utils and make shells scripts executable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganize utils and make shells scripts executable" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/SprayTracker.class" />
@@ -677,31 +725,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/mnrva/simplant_bg">
+    <entry file="file://$PROJECT_DIR$/utils/server/simplant-daemon.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
+        <state relative-caret-position="57">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/deploy_jar">
+    <entry file="file://$PROJECT_DIR$/utils/deploy_jar.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        <state relative-caret-position="76">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/deploy_web-interface">
+    <entry file="file://$PROJECT_DIR$/utils/server/web-interface/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="47" selection-start-column="47" selection-end-column="47" />
+        <state relative-caret-position="232">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/mnrva/web-interface/index.html">
+    <entry file="file://$PROJECT_DIR$/utils/deploy_web-interface.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        <state relative-caret-position="95">
+          <caret line="5" column="7" selection-start-line="5" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/deploy_daemon.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
         </state>
       </provider>
     </entry>
