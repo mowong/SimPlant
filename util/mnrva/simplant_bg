@@ -1,0 +1,1 @@
+echo | java -jar ../out/artifaces/simplant_jar/simplant.jar &
