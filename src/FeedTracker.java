@@ -1,12 +1,18 @@
 public class FeedTracker extends Tracker {
 
-  /** ratio between increments and decrements */
+  /**
+   * ratio between increments and decrements
+   */
   private static final double INC_DEC_RATIO = 33.0;
 
-  /** from ideal, number of increments required to kill */
+  /**
+   * from ideal, number of increments required to kill
+   */
   private static final double DEADLY_INCS = 3.0;
 
-  /** from ideal, number of decrements required to kill */
+  /**
+   * from ideal, number of decrements required to kill
+   */
   private static final double DEADLY_DECS = 66.0;
 
   // derived values
@@ -24,49 +30,49 @@ public class FeedTracker extends Tracker {
   private static final Tracker.Zone[] ZONES =
       {
           new Tracker.Zone(
-              "+X",100.0, false, true,
+              "+X", 100.0, false, true,
               new String[]{
                   "It has burnt to a crisp. ",
                   "The leaves are all shrivelled up and burnt. "
               }
           ),
           new Tracker.Zone(
-              "+2",IDEAL + 2 * INCREMENT, false, false,
+              "+2", (2.0 / 3) * (100 - IDEAL) + IDEAL, false, false,
               new String[]{
                   "Some leaves near the top are shrivelled up. " +
                   "The tips of some others are yellowing"
               }
           ),
           new Tracker.Zone(
-              "+1",IDEAL + 1.25 * INCREMENT, true, false,
+              "+1", (5.0 / 12) * (100 - IDEAL) + IDEAL, true, false,
               new String[]{
                   "Some of the top-most leaves are looking a little yellow. " +
                   "The tips of them are also a little burnt. "
               }
           ),
           new Tracker.Zone(
-              "±0",IDEAL - 16.5 * DECREMENT, true, false,
+              "±0", (3.0 / 4) * IDEAL, true, false,
               new String[]{
                   "The leaves are a nice deep green. ",
                   "The leaves look so healthy!"
               }
           ),
           new Tracker.Zone(
-              "-1",IDEAL - 49.5 * DECREMENT, true, false,
+              "-1", (1.0 / 4) * IDEAL, true, false,
               new String[]{
                   "Some of the bottom leaves are turning yellow. ",
                   "There's some yellowing on the lower leaves"
               }
           ),
           new Tracker.Zone(
-              "-2",0.0, false, false,
+              "-2", 0.0, false, false,
               new String[]{
                   "Many leaves are yellow. " +
                   "Some of them are drying up and falling off. "
               }
           ),
           new Tracker.Zone(
-              "-X",-1.0, false, true,
+              "-X", -1.0, false, true,
               new String[]{
                   "The leaves have all brown and crinkly. ",
                   "The leaves are falling off. "

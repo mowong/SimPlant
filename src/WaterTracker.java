@@ -36,7 +36,7 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL + 2 applications  (minimum for zone)
           new Tracker.Zone(
-              "+2", IDEAL + 2 * INCREMENT, false, false,
+              "+2", (2.0 / 3) * (100 - IDEAL) + IDEAL, false, false,
               new String[]{
                   "The leaves are drooping quite badly. ",
                   "It's wilting quite a bit. "
@@ -44,7 +44,7 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL + 1.25 applications  (minimum for zone)
           new Tracker.Zone(
-              "+1", IDEAL + 1.25 * INCREMENT, false, false,
+              "+1", (5.0 / 12) * (100 - IDEAL) + IDEAL, false, false,
               new String[]
 
                   {
@@ -54,7 +54,7 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL ZONE
           new Tracker.Zone(
-              "±0", IDEAL - 4 * DECREMENT, true, false,
+              "±0", (3.0 / 4) * IDEAL, true, false,
               new String[]
 
                   {
@@ -63,7 +63,7 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL + 8 days  (maximum for zone)
           new Tracker.Zone(
-              "-1", IDEAL - 12 * DECREMENT, false, false,
+              "-1", (1.0 / 4) * IDEAL, false, false,
               new String[]
 
                   {
