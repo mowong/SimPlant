@@ -3,7 +3,7 @@ public enum PlantAction {
   WATER("Water applied. "),
   FEED("Fertilizer applied. "),
   SPRAY("Pesticides applied. "),
-  BLOSSOM("You have somehow made your plant bloom. "); // This shouldn't happen.
+  BLOOM("You have somehow made your plant bloom. "); // This shouldn't happen.
 
   private String feedback;
 

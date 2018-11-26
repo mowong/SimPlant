@@ -42,7 +42,11 @@ public class BugTracker extends Tracker {
           ),
           new Tracker.Zone("+0", -1.0, true, false,
                            new String[]{
+<<<<<<< HEAD
                                " "
+=======
+                               "No bugs to be seen. "
+>>>>>>> f4d3aa61ff78f0d4d34aa4b07044038f198c36da
                            }
           )
       };
