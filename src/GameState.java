@@ -1,6 +1,7 @@
 public enum GameState {
-  ACTIVE,
-  CONFIRM_NEW,
+  NEW_PLAYER,
+  GAME_IS_ON,
   CONFIRM_QUIT,
-  GAME_OVER // should this really be a state ???
+  GAME_OVER,
+  CONFIRM_NEW
 }
