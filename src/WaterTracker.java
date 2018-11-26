@@ -1,12 +1,18 @@
 class WaterTracker extends Tracker {
 
-  /** ratio between increments and decrements */
+  /**
+   * ratio between increments and decrements
+   */
   private static final double INC_DEC_RATIO = 8.0;
 
-  /** from ideal, number of increments required to kill */
+  /**
+   * from ideal, number of increments required to kill
+   */
   private static final double DEADLY_INCS = 3.0;
 
-  /** from ideal, number of decrements required to kill */
+  /**
+   * from ideal, number of decrements required to kill
+   */
   private static final double DEADLY_DECS = 16.0;
 
   // derived values
@@ -36,7 +42,8 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL + 2 applications  (minimum for zone)
           new Tracker.Zone(
-              "+2", (2.0 / 3) * (100 - IDEAL) + IDEAL, false, false,
+              "+2", (2.0 / 3) * (100 - IDEAL) + IDEAL,
+              false, false,
               new String[]{
                   "The leaves are drooping quite badly. ",
                   "It's wilting quite a bit. "
@@ -44,7 +51,8 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL + 1.25 applications  (minimum for zone)
           new Tracker.Zone(
-              "+1", (5.0 / 12) * (100 - IDEAL) + IDEAL, false, false,
+              "+1", (5.0 / 12) * (100 - IDEAL) + IDEAL,
+              false, false,
               new String[]
 
                   {
@@ -54,7 +62,8 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL ZONE
           new Tracker.Zone(
-              "±0", (3.0 / 4) * IDEAL, true, false,
+              "±0", (3.0 / 4) * IDEAL,
+              true, false,
               new String[]
 
                   {
@@ -63,7 +72,8 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL + 8 days  (maximum for zone)
           new Tracker.Zone(
-              "-1", (1.0 / 4) * IDEAL, false, false,
+              "-1", (1.0 / 4) * IDEAL,
+              false, false,
               new String[]
 
                   {

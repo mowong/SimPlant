@@ -37,28 +37,32 @@ public class FeedTracker extends Tracker {
               }
           ),
           new Tracker.Zone(
-              "+2", (2.0 / 3) * (100 - IDEAL) + IDEAL, false, false,
+              "+2", (2.0 / 3) * (100 - IDEAL) + IDEAL,
+              false, false,
               new String[]{
                   "Some leaves near the top are shrivelled up. " +
                   "The tips of some others are yellowing"
               }
           ),
           new Tracker.Zone(
-              "+1", (5.0 / 12) * (100 - IDEAL) + IDEAL, true, false,
+              "+1", (5.0 / 12) * (100 - IDEAL) + IDEAL,
+              true, false,
               new String[]{
                   "Some of the top-most leaves are looking a little yellow. " +
                   "The tips of them are also a little burnt. "
               }
           ),
           new Tracker.Zone(
-              "±0", (3.0 / 4) * IDEAL, true, false,
+              "±0", (3.0 / 4) * IDEAL,
+              true, false,
               new String[]{
                   "The leaves are a nice deep green. ",
                   "The leaves look so healthy!"
               }
           ),
           new Tracker.Zone(
-              "-1", (1.0 / 4) * IDEAL, true, false,
+              "-1", (1.0 / 4) * IDEAL,
+              true, false,
               new String[]{
                   "Some of the bottom leaves are turning yellow. ",
                   "There's some yellowing on the lower leaves"
