@@ -11,7 +11,10 @@ class Controller implements Messageable {
     gameLoader = new GameLoader(this);
     System.out.println("SimPlant server live!\n");
     new Thread(new PromptServer(this)).start();
-    new Thread(new HttpServer(this)).start();
+
+    // run this on main thread
+    new HttpServer(this).run();
+
   }
 
   @Override
