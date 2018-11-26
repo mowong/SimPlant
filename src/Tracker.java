@@ -13,7 +13,11 @@ class Tracker implements TrackerInterface {
   Tracker(Levels levels, Zone[] zones) {
     this.levels = levels;
     Arrays.sort(
+<<<<<<< HEAD
         zones,(x,y)-> Double.compare(y.getMinPercent(), x.getMinPercent())
+=======
+        zones, (x, y) -> Double.compare(y.getMinPercent(), x.getMinPercent())
+>>>>>>> f4d3aa61ff78f0d4d34aa4b07044038f198c36da
     );
     this.zones = zones;
     level = levels.ideal;
@@ -66,7 +70,19 @@ class Tracker implements TrackerInterface {
   }
 
   String toString(String prefix) {
+<<<<<<< HEAD
     return String.format("%s zone: %s level: %.2f", prefix, getZone().code, level);
+=======
+    return
+        String.format(
+            "%s zone: %s, level: %.2f\n",
+            prefix, getZone().code, level
+        ) +
+        "LEVELS\n" +
+        levels.toString() +
+        "ZONES " +
+        Arrays.toString(zones);
+>>>>>>> f4d3aa61ff78f0d4d34aa4b07044038f198c36da
   }
 
   @Override
@@ -98,8 +114,14 @@ class Tracker implements TrackerInterface {
     private final double incrementDev;
 
     Levels(double ideal,
+<<<<<<< HEAD
                   double decrement, double decrementDevPercent,
                   double increment, double incrementDevPercent) {
+=======
+           double decrement, double decrementDevPercent,
+           double increment, double incrementDevPercent
+    ) {
+>>>>>>> f4d3aa61ff78f0d4d34aa4b07044038f198c36da
       this.ideal = ideal;
       this.decrement = decrement;
       this.decrementDev = decrement * decrementDevPercent / 100;
@@ -109,11 +131,22 @@ class Tracker implements TrackerInterface {
 
     @Override
     public String toString() {
+<<<<<<< HEAD
       return "ideal        : " + ideal + "\n" +
              "decrement    : " + decrement + "\n" +
              "decrementDev : " + decrementDev + "\n" +
              "increment    : " + increment + "\n" +
              "incrementDev : " + incrementDev;
+=======
+      return String.format(
+          "ideal        : %02.1f\n" +
+          "decrement    : %02.1f\n" +
+          "decrementDev : %02.1f\n" +
+          "increment    : %02.1f\n" +
+          "incrementDev : %02.1f\n",
+          ideal, decrement, decrementDev, increment, incrementDev
+      );
+>>>>>>> f4d3aa61ff78f0d4d34aa4b07044038f198c36da
     }
   }
 
@@ -127,7 +160,12 @@ class Tracker implements TrackerInterface {
 
     Zone(String code, double minPercent,
          boolean healthy, boolean deadly,
+<<<<<<< HEAD
          String[] statuses) {
+=======
+         String[] statuses
+    ) {
+>>>>>>> f4d3aa61ff78f0d4d34aa4b07044038f198c36da
       this.code = code;
       this.minPercent = minPercent;
       this.healthy = healthy;
@@ -153,10 +191,16 @@ class Tracker implements TrackerInterface {
 
     @Override
     public String toString() {
+<<<<<<< HEAD
       return "minPercent  : " + minPercent + "\n" +
              "healthy     : " + healthy + "\n" +
              "deadly      : " + deadly + "\n" +
              "statuses    : " + Arrays.toString(statuses);
+=======
+      return "\nmin percent  : " + minPercent +
+             (isHealthy() ? " (healthy)" : "") +
+             (isDeadly() ? " (deadly)" : "");
+>>>>>>> f4d3aa61ff78f0d4d34aa4b07044038f198c36da
     }
 
   }

@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+#  restart simplant on mnrva
+#
+#
+
+$(dirname "$0")/stop
+$(dirname "$0")/start
