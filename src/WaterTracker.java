@@ -52,7 +52,7 @@ class WaterTracker extends Tracker {
           // IDEAL + 1.25 applications  (minimum for zone)
           new Tracker.Zone(
               "+1", (5.0 / 12) * (100 - IDEAL) + IDEAL,
-              false, false,
+              true, false,
               new String[]
 
                   {
@@ -73,7 +73,7 @@ class WaterTracker extends Tracker {
           // IDEAL + 8 days  (maximum for zone)
           new Tracker.Zone(
               "-1", (1.0 / 4) * IDEAL,
-              false, false,
+              true, false,
               new String[]
 
                   {
