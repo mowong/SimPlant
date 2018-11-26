@@ -2,16 +2,17 @@
 // Has a PlantModel object
 //
 class Game {
-  String id;
-  Plant plant;
-  private Controller controller;
+  private String id;
+  private Plant plant;
+  private GameLoader loader;
   private GameState gameState;
+  private GameState lastState;
 
-  Game(Controller controller, String id) {
+  Game(GameLoader loader, String id) {
     this.id = id;
     this.plant = new Plant();
-    this.controller = controller; // will call this to delete game etc.
-    gameState = GameState.ACTIVE;
+    this.loader = loader; // will call this to delete user
+    gameState = GameState.GAME_IS_ON;
   }
 
   String getInitialStatus() {
@@ -19,6 +20,25 @@ class Game {
   }
 
   String processCommand(String command) {
+
+    switch ( gameState ) {
+      case GAME_IS_ON:
+        return commandGameIsOn(command);
+      case CONFIRM_NEW:
+        return yesOrNo() ? newPlantConfirmed() : retreat();
+      case CONFIRM_QUIT:
+        return yesOrNo() ? quitConfirmed() : retreat();
+      case NEW_PLAYER:
+      case CONFIRM_FIRST_GAME:
+    }
+    return null;
+  }
+
+  String retreat() {
+    gameState =lastState;
+  }
+
+  String commandGameIsOn(String command) {
     switch ( (command + "   ").substring(0, 3).toLowerCase() ) {
 
       // PLANT COMMANDS
@@ -42,22 +62,12 @@ class Game {
 
       case "hel":  // help
         return getHelpMessage();
-      case "new":
-        return newPlant();
+      case "new":  // new plant
       case "end":  // end
       case "qui":  // quit
       case "exi":  // exit
       case "kil":  // kill
-        return quitGame();
-      case "yes":  // yes
-      case "y  ":  // y
-        return processYes(command);
-      case "no ":  // no
-      case "n  ":  // n
-        return processNo(command);
-
-      // UNKNOWN COMMANDS
-
+        return newPlant();
       default:
         return getUnknownCommandResponse(command);
 
@@ -65,10 +75,8 @@ class Game {
   }
 
   private String response(String message) {
-    if ( plant.isDead() ) return controller.gameOver(this, message);
+    if ( plant.isDead() ) loader.deleteGame(id);
     return message;
-
-
   }
 
   private String getHelpMessage() {
@@ -86,7 +94,7 @@ class Game {
     return "Are you sure you want to start a new plant?";
   }
 
-  private String quitGame() {
+  private String killPlant() {
     gameState = GameState.CONFIRM_QUIT;
     return "Are you sure you want to quit the game? " +
            "(Your plant will be lost!)";
@@ -94,7 +102,7 @@ class Game {
 
   private String processYes(String command) {
     switch ( gameState ) {
-      case ACTIVE:
+      case GAME_IS_ON:
         return what(command);
       case CONFIRM_NEW:
         return newPlantConfirmed();
@@ -107,7 +115,7 @@ class Game {
 
   private String processNo(String command) {
     switch ( gameState ) {
-      case ACTIVE:
+      case GAME_IS_ON:
         return what(command);
       case CONFIRM_NEW:
         return newPlantAborted();
@@ -133,7 +141,8 @@ class Game {
   }
 
   private String quitConfirmed() {
-    return controller.gameOver(this, "Your plant has been discarded. ");
+    loader.deleteGame(this.id);
+    return "Your plant has been discarded. ";
   }
 
   private String quitAborted() {
