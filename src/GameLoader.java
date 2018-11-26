@@ -4,20 +4,18 @@ import java.util.Map;
 class GameLoader {
 
   private Map<String,Game> gameMap;
-  private Controller controller;
 
-  GameLoader(Controller controller){
-    this.controller = controller;
+  GameLoader(){
     gameMap = new HashMap<>();
   }
 
   Game getGame(String id){
     if (gameMap.containsKey(id)) return gameMap.get(id);
-    return null;
+    return newGame(id);
   }
 
-  Game newGame(String id){
-    Game game = new Game(controller,id);
+  private Game newGame(String id){
+    Game game = new Game(this,id);
     gameMap.put(id,game);
     return game;
   }
