@@ -8,9 +8,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2c3d7b1b-482b-49d0-a554-69861e41e536" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FeedTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FeedTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LevelTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LevelTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaterTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaterTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/simplant/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/simplant/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/simplant/FeedTracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/simplant/FeedTracker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameState.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,12 +23,55 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1251">
+              <caret line="66" column="26" lean-forward="true" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
+              <folding>
+                <element signature="e#3227#3228#0" expanded="true" />
+                <element signature="e#3402#3403#0" expanded="true" />
+                <element signature="e#3578#3579#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -46,10 +92,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/GameLoader.java" />
         <option value="$PROJECT_DIR$/src/TrackerTester.java" />
         <option value="$PROJECT_DIR$/src/BlossomTracker.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Zone.java" />
         <option value="$PROJECT_DIR$/src/AbstractTracker.java" />
         <option value="$PROJECT_DIR$/src/TrackerLevels.java" />
@@ -87,11 +131,15 @@
         <option value="$PROJECT_DIR$/utils/remote-start" />
         <option value="$PROJECT_DIR$/utils/remote-restart" />
         <option value="$PROJECT_DIR$/utils/deploy_jar" />
-        <option value="$PROJECT_DIR$/src/Controller.java" />
         <option value="$PROJECT_DIR$/src/Tracker.java" />
         <option value="$PROJECT_DIR$/src/LevelTester.java" />
-        <option value="$PROJECT_DIR$/src/WaterTracker.java" />
         <option value="$PROJECT_DIR$/src/FeedTracker.java" />
+        <option value="$PROJECT_DIR$/src/WaterTracker.java" />
+        <option value="$PROJECT_DIR$/src/MemoryGameLoader.java" />
+        <option value="$PROJECT_DIR$/src/GameLoader.java" />
+        <option value="$PROJECT_DIR$/src/GameState.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/Controller.java" />
       </list>
     </option>
   </component>
@@ -137,7 +185,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543203051392" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543204486344" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -175,22 +223,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LevelTester">
-    <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Controller">
+    <configuration name="Controller" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Controller" />
       <module name="simplant" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LevelTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="LevelTester" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LevelTester" />
       <module name="simplant" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrackerTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TrackerTester" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TrackerTester" />
       <module name="simplant" />
       <method v="2">
@@ -224,6 +272,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.LevelTester" />
       <item itemvalue="Application.Controller" />
       <item itemvalue="Application.TrackerTester" />
       <item itemvalue="Application.LevelTester" />
@@ -232,11 +281,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LevelTester" />
         <item itemvalue="Bash.remote-restart" />
         <item itemvalue="Bash.deploy_jar" />
-        <item itemvalue="Application.Controller" />
-        <item itemvalue="Application.TrackerTester" />
       </list>
     </recent_temporary>
   </component>
@@ -263,7 +309,7 @@
       <workItem from="1543110606755" duration="37000" />
       <workItem from="1543110665763" duration="797000" />
       <workItem from="1543111741638" duration="7270000" />
-      <workItem from="1543198820705" duration="3633000" />
+      <workItem from="1543198820705" duration="5209000" />
     </task>
     <task id="LOCAL-00001" summary="Afford multiple games, fix death message&#10;&#10;When plant dies the game now asks if you want to play again.&#10;TODO: refactor controller/game/plant.&#10;It has gotten a bit noodly.">
       <created>1542831605567</created>
@@ -440,11 +486,32 @@
       <option name="project" value="LOCAL" />
       <updated>1543202141963</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Reformatting">
+      <created>1543203089294</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1543203089294</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Reformatting">
+      <created>1543203429896</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1543203429896</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Put PromtServer on main thread, &amp; ±1 is healthy&#10;&#10;Though I changed that healthy bit earlier but did not.">
+      <created>1543203475999</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1543203475999</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46330000" />
+    <option name="totallyTimeSpent" value="47906000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -457,8 +524,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2932761" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2932761" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -468,7 +536,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3299363" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3299363" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.3210191" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3210191" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -491,40 +559,6 @@
       <window_info anchor="right" id="Maven Projects" order="9" />
       <window_info anchor="right" id="Maven" order="10" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2932761" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3299363" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.3299363" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3210191" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.3299363" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299363" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49785408" weight="0.3299363" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50214595" side_tool="true" weight="0.3299363" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3299363" />
-      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Remote Host" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Maven Projects" order="9" />
-      <window_info anchor="right" id="Maven" order="10" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -570,8 +604,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove Bug &amp; Spray Trackers (SprayTracker moved to src)ˆ" />
-    <MESSAGE value="Tracker replaced by TrackerInterface in src" />
     <MESSAGE value="Refactor. Subroutine Methods replace repeated code." />
     <MESSAGE value="Add toString, refactor tracker testing code." />
     <MESSAGE value="Add debug string to status message" />
@@ -595,7 +627,9 @@
     <MESSAGE value="Add remote restart&#10;&#10;This will remotely restart simplant on mnrva." />
     <MESSAGE value="Tracker Levels are calculated from descriptive definers" />
     <MESSAGE value="Tracker Zones are calculated from descriptive definers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tracker Zones are calculated from descriptive definers" />
+    <MESSAGE value="Reformatting" />
+    <MESSAGE value="Put PromtServer on main thread, &amp; ±1 is healthy&#10;&#10;Though I changed that healthy bit earlier but did not." />
+    <option name="LAST_COMMIT_MESSAGE" value="Put PromtServer on main thread, &amp; ±1 is healthy&#10;&#10;Though I changed that healthy bit earlier but did not." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/SprayTracker.class" />
@@ -604,29 +638,8 @@
     <entry file="file://$PROJECT_DIR$/Tracker.java" />
     <entry file="file://$PROJECT_DIR$/WaterTracker.java" />
     <entry file="file://$PROJECT_DIR$/FeedTracker.java" />
-    <entry file="file://$PROJECT_DIR$/src/HttpServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simplant.iml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PromptServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TrackerLevels.java" />
     <entry file="jar://$PROJECT_DIR$/lib/jetty-server-9.4.12.v20180830.jar!/org/eclipse/jetty/server/Server.class">
@@ -770,13 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../2. Algorithms/M14 - Trees/Homework/Queues/Queues.iml" />
     <entry file="file://$PROJECT_DIR$/src/Tracker.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -787,13 +793,6 @@
             <element signature="e#1338#1339#0" expanded="true" />
             <element signature="e#1690#1691#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -812,13 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TrackerTester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
@@ -833,10 +825,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PromptServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/WaterTracker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="937">
-          <caret line="75" column="14" lean-forward="true" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
+        <state relative-caret-position="1159">
+          <caret line="61" column="12" lean-forward="true" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1251">
+          <caret line="66" column="26" lean-forward="true" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
+          <folding>
+            <element signature="e#3227#3228#0" expanded="true" />
+            <element signature="e#3402#3403#0" expanded="true" />
+            <element signature="e#3578#3579#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
