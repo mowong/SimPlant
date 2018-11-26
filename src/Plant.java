@@ -8,8 +8,13 @@ import java.util.stream.Collectors;
 class Plant {
 
   //  private static final int STEP_SECONDS = 60 * 60 * 24; // one day
+<<<<<<< HEAD
   private static final int STEP_SECONDS = 5; // for testing
   private static final String STEP_STRING = "day";
+=======
+  private static final int STEP_SECONDS = 2; // for testing
+  static final String STEP_STRING = "day";
+>>>>>>> f4d3aa61ff78f0d4d34aa4b07044038f198c36da
 
   private Instant born;
   private int lastUpdated; // steps since born
@@ -22,7 +27,11 @@ class Plant {
     trackerMap.put(PlantAction.WATER, new WaterTracker());
     trackerMap.put(PlantAction.FEED, new FeedTracker());
     trackerMap.put(PlantAction.SPRAY, new BugTracker());
+<<<<<<< HEAD
     trackerMap.put(PlantAction.BLOSSOM, new BlossomTracker(this));
+=======
+    trackerMap.put(PlantAction.BLOOM, new BloomTracker(this));
+>>>>>>> f4d3aa61ff78f0d4d34aa4b07044038f198c36da
   }
 
   String action(PlantAction action) {
@@ -65,8 +74,11 @@ class Plant {
   }
 
   private String getDaysOld() {
-    return lastUpdated + " " + STEP_STRING + (lastUpdated == 1 ? " " : "s ") +
-           "old";
+    return lastUpdated == 0 ?
+               "less than a day old" :
+               (lastUpdated + " " + STEP_STRING +
+                (lastUpdated == 1 ? " " : "s ") + "old"
+               );
   }
 
   private String getStatus() {
@@ -99,6 +111,6 @@ class Plant {
                .map(TrackerInterface::getLevelCode)
                .filter(Objects::nonNull)
                .map(String::trim)
-               .collect(Collectors.joining(",","[","] "));
+               .collect(Collectors.joining(",", "[", "] "));
   }
 }
