@@ -1,10 +1,19 @@
 public class FeedTracker extends Tracker {
 
-  // LEVEL LOGIC
-  // One application adds the same amount as 33 days removes.
-  // If the plant is at the ideal level,
-  // it wall die after 3 applications at once and
-  // it will die after 66 days without an application.
+  /** ratio between increments and decrements */
+  private static final double INC_DEC_RATIO = 33.0;
+
+  /** from ideal, number of increments required to kill */
+  private static final double DEADLY_INCS = 3.0;
+
+  /** from ideal, number of decrements required to kill */
+  private static final double DEADLY_DECS = 66.0;
+
+  // derived values
+  private static final double DECREMENT =
+      (100 / DEADLY_INCS) / (INC_DEC_RATIO + DEADLY_DECS / DEADLY_INCS);
+  private static final double INCREMENT = DECREMENT * INC_DEC_RATIO;
+  private static final double IDEAL = DECREMENT * DEADLY_DECS;
 
   private static final Tracker.Levels LEVELS = new Tracker.Levels(
       40.0,
@@ -22,28 +31,28 @@ public class FeedTracker extends Tracker {
               }
           ),
           new Tracker.Zone(
-              "+2",80.0, false, false,
+              "+2",IDEAL + 2 * INCREMENT, false, false,
               new String[]{
                   "Some leaves near the top are shrivelled up. " +
                   "The tips of some others are yellowing"
               }
           ),
           new Tracker.Zone(
-              "+1",65.0, true, false,
+              "+1",IDEAL + 1.25 * INCREMENT, true, false,
               new String[]{
                   "Some of the top-most leaves are looking a little yellow. " +
                   "The tips of them are also a little burnt. "
               }
           ),
           new Tracker.Zone(
-              "±0",30.0, true, false,
+              "±0",IDEAL - 16.5 * DECREMENT, true, false,
               new String[]{
                   "The leaves are a nice deep green. ",
                   "The leaves look so healthy!"
               }
           ),
           new Tracker.Zone(
-              "-1",10.0, true, false,
+              "-1",IDEAL - 49.5 * DECREMENT, true, false,
               new String[]{
                   "Some of the bottom leaves are turning yellow. ",
                   "There's some yellowing on the lower leaves"
