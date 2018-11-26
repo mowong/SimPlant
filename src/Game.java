@@ -9,37 +9,56 @@ class Game {
   private GameState lastState;
 
   Game(GameLoader loader, String id) {
-    this.id = id;
-    this.plant = new Plant();
-    this.loader = loader; // will call this to delete user
-    gameState = GameState.GAME_IS_ON;
+    gameState = GameState.NEW_PLAYER;
+
+    //// in a future version Game will call loader with id to delete a player
+    // this.id = id;
+    // this.loader = loader;
   }
 
-  String getInitialStatus() {
-    return "You've got a new plant! " + plant.action(PlantAction.CHECK);
-  }
-
-  String processCommand(String command) {
-
+  String processCommand(String rawCommand) {
+    String command = (rawCommand + "   ").substring(0, 3).toLowerCase();
     switch ( gameState ) {
-      case GAME_IS_ON:
-        return commandGameIsOn(command);
-      case CONFIRM_NEW:
-        return yesOrNo() ? newPlantConfirmed() : retreat();
-      case CONFIRM_QUIT:
-        return yesOrNo() ? quitConfirmed() : retreat();
       case NEW_PLAYER:
-      case CONFIRM_FIRST_GAME:
+        return newPlayer();
+      case GAME_IS_ON:
+        return gameIsOn(command);
+      case GAME_OVER:
+        return askNew();
+      case CONFIRM_NEW:
+        return yesOrNo(command) ? confirmNew() : abortNew();
+      case CONFIRM_QUIT:
+        return yesOrNo(command) ? confirmQuit() : abortQuit();
     }
     return null;
   }
 
-  String retreat() {
-    gameState =lastState;
+  private boolean yesOrNo(String command) {
+    switch ( command ) {
+      case "yes": // yes
+      case "ye ":
+      case "y  ":
+      case "ya ":
+      case "ok ":
+      case "for": // for sure
+      case "do ": // do it
+        return true;
+      default: // no
+        return false;
+    }
   }
 
-  String commandGameIsOn(String command) {
-    switch ( (command + "   ").substring(0, 3).toLowerCase() ) {
+  private void revertState() {
+    gameState = lastState;
+  }
+
+  private void setState(GameState newState) {
+    lastState = gameState;
+    gameState = newState;
+  }
+
+  private String gameIsOn(String command) {
+    switch ( command ) {
 
       // PLANT COMMANDS
 
@@ -47,106 +66,100 @@ class Game {
       case "loo":  // look
       case "che":  // check
       case "sta":  // status
-        return response(plant.action(PlantAction.CHECK));
+        return doAction(PlantAction.CHECK);
       case "wat":  // water
-        return response(plant.action(PlantAction.WATER));
+        return doAction(PlantAction.WATER);
       case "fee":  // feed
       case "fer":  // fertilize
-        return response(plant.action(PlantAction.FEED));
+        return doAction(PlantAction.FEED);
       case "spr":  // spray
       case "bug":  // bug-spray
       case "pes":  // pesticide
-        return response(plant.action(PlantAction.SPRAY));
+        return doAction(PlantAction.SPRAY);
 
       // GAME COMMANDS
 
       case "hel":  // help
-        return getHelpMessage();
-      case "new":  // new plant
+        return helpMessage();
       case "end":  // end
       case "qui":  // quit
       case "exi":  // exit
       case "kil":  // kill
-        return newPlant();
+        return requestQuit();
       default:
         return getUnknownCommandResponse(command);
 
     }
   }
 
-  private String response(String message) {
-    if ( plant.isDead() ) loader.deleteGame(id);
+  private String doAction(PlantAction action){
+    return checkForDead(plant.action(action));
+  }
+
+  private String checkForDead(String message) {
+    if ( plant.isDead() ) {
+      setState(GameState.GAME_OVER);
+    }
     return message;
   }
 
-  private String getHelpMessage() {
+  private String helpMessage() {
     return "This is a not-very-useful help message.";
   }
 
   private String getUnknownCommandResponse(String message) {
-    return message.length() == 0 ?
-               "Please enter a command." :
-               "I don't know how to '" + message + "'.";
+    return (message.length() == 0 ?
+                "Please send a command. " :
+                "I don't know how to '" + message + "'. "
+           ) + getHowToGetHelp();
   }
 
-  private String newPlant() {
-    gameState = GameState.CONFIRM_NEW;
-    return "Are you sure you want to start a new plant?";
+  private String getHowToGetHelp() {
+    return "(send 'help' for help!)";
   }
 
-  private String killPlant() {
-    gameState = GameState.CONFIRM_QUIT;
+  // asks to confirm starting a new plant
+  private String askNew() {
+    setState(GameState.CONFIRM_NEW);
+    return "Would you like to grow a new plant?";
+  }
+
+  // starts a new plant
+  private String confirmNew() {
+    setState(GameState.GAME_IS_ON);
+    plant = new Plant();
+    return "You have a new plant! " +
+           plant.action(PlantAction.CHECK) +
+           getHowToGetHelp();
+  }
+
+  // returns to previous state
+  private String abortNew() {
+    revertState();
+    return "Let me know when you change your mind! (Any text will do.)";
+  }
+
+  // asks to confirm quitting a plant
+  private String requestQuit() {
+    setState(GameState.CONFIRM_QUIT);
     return "Are you sure you want to quit the game? " +
            "(Your plant will be lost!)";
   }
 
-  private String processYes(String command) {
-    switch ( gameState ) {
-      case GAME_IS_ON:
-        return what(command);
-      case CONFIRM_NEW:
-        return newPlantConfirmed();
-      case CONFIRM_QUIT:
-        return quitConfirmed();
-      default:
-        throw new IllegalStateException("Invalid game state.");
-    }
+  // returns to previous state
+  private String abortQuit() {
+    revertState();
+    return "Ok good. " + doAction(PlantAction.CHECK);
   }
 
-  private String processNo(String command) {
-    switch ( gameState ) {
-      case GAME_IS_ON:
-        return what(command);
-      case CONFIRM_NEW:
-        return newPlantAborted();
-      case CONFIRM_QUIT:
-        return quitAborted();
-      default:
-        throw new IllegalStateException("Invalid game state.");
-    }
-
+  // quits the game
+  private String confirmQuit() {
+    setState(GameState.GAME_OVER);
+    return askNew();
   }
 
-  private String what(String command) {
-    return command + "?";
-  }
-
-  private String newPlantConfirmed() {
-    plant = new Plant();
-    return plant.action(PlantAction.CHECK);
-  }
-
-  private String newPlantAborted() {
-    return "Good.";
-  }
-
-  private String quitConfirmed() {
-    loader.deleteGame(this.id);
-    return "Your plant has been discarded. ";
-  }
-
-  private String quitAborted() {
-    return "Good.";
+  private String newPlayer() {
+    return "Welcome to SimPlant! " + askNew();
   }
 
 }
