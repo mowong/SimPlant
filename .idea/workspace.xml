@@ -225,9 +225,9 @@
     <list>
       <item itemvalue="Application.Controller" />
       <item itemvalue="Application.TrackerTester" />
+      <item itemvalue="Application.LevelTester" />
       <item itemvalue="Bash.remote-restart" />
       <item itemvalue="Bash.deploy_jar" />
-      <item itemvalue="Application.LevelTester" />
     </list>
     <recent_temporary>
       <list>
