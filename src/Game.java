@@ -72,7 +72,7 @@ class Game {
   }
 
   private String getHelpMessage() {
-    return "This is a not-very-useful help message.";
+    return "You can \"feed\", \"water\", \"spray\" for bugs, or \"check\" on your plant.";
   }
 
   private String getUnknownCommandResponse(String message) {

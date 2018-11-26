@@ -21,7 +21,7 @@ class Plant {
     trackerMap = new LinkedHashMap<>(4);
     trackerMap.put(PlantAction.WATER, new WaterTracker());
     trackerMap.put(PlantAction.FEED, new FeedTracker());
-    trackerMap.put(PlantAction.SPRAY, new SprayTracker());
+    trackerMap.put(PlantAction.SPRAY, new BugTracker());
     trackerMap.put(PlantAction.BLOSSOM, new BlossomTracker(this));
   }
 
