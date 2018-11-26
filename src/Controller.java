@@ -9,7 +9,7 @@ class Controller implements Messageable {
 
   private Controller() {
     gameLoader = new GameLoader(this);
-    System.out.println("SimPlant is begin!\n");
+    System.out.println("SimPlant server live!\n");
     new Thread(new PromptServer(this)).start();
     new Thread(new HttpServer(this)).start();
   }

@@ -1,15 +1,25 @@
 class WaterTracker extends Tracker {
 
-  // LEVEL LOGIC
-  // One application adds the same amount as 8 days removes.
-  // If the plant is at the ideal level,
-  // it wall die after 3 applications at once and
-  // it will die after 16 days without an application.
+  /** ratio between increments and decrements */
+  private static final double INC_DEC_RATIO = 8.0;
+
+  /** from ideal, number of increments required to kill */
+  private static final double DEADLY_INCS = 3.0;
+
+  /** from ideal, number of decrements required to kill */
+  private static final double DEADLY_DECS = 16.0;
+
+  // derived values
+  private static final double DECREMENT =
+      (100 / DEADLY_INCS) / (INC_DEC_RATIO + DEADLY_DECS / DEADLY_INCS);
+  private static final double INCREMENT = DECREMENT * INC_DEC_RATIO;
+  private static final double IDEAL = DECREMENT * DEADLY_DECS;
+
 
   private static final Tracker.Levels LEVELS = new Tracker.Levels(
-      40.0,
-      2.5, 8.0,
-      20, 8.0
+      IDEAL,
+      DECREMENT, 8.0,
+      INCREMENT, 8.0
   );
 
   private static final Tracker.Zone[] ZONES =
@@ -26,7 +36,7 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL + 2 applications  (minimum for zone)
           new Tracker.Zone(
-              "+2", 80.0, false, false,
+              "+2", IDEAL + 2 * INCREMENT, false, false,
               new String[]{
                   "The leaves are drooping quite badly. ",
                   "It's wilting quite a bit. "
@@ -34,7 +44,7 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL + 1.25 applications  (minimum for zone)
           new Tracker.Zone(
-              "+1", 65.0, false, false,
+              "+1", IDEAL + 1.25 * INCREMENT, false, false,
               new String[]
 
                   {
@@ -44,39 +54,39 @@ class WaterTracker extends Tracker {
           ),
           // IDEAL ZONE
           new Tracker.Zone(
-          "±0",30.0, true, false,
-                           new String[]
+              "±0", IDEAL - 4 * DECREMENT, true, false,
+              new String[]
 
-                               {
-                                   "The leaves are perfectly perky. "
-                               }
+                  {
+                      "The leaves are perfectly perky. "
+                  }
           ),
           // IDEAL + 8 days  (maximum for zone)
           new Tracker.Zone(
-              "-1",10.0, false, false,
-                           new String[]
+              "-1", IDEAL - 12 * DECREMENT, false, false,
+              new String[]
 
-                               {
-                                   "The leaves are a little bit limp. "
-                               }
+                  {
+                      "The leaves are a little bit limp. "
+                  }
           ),
           // IDEAL + 12 days  (maximum for zone)
           new Tracker.Zone(
-              "-2",0.0, false, false,
-                           new String[]
+              "-2", 0.0, false, false,
+              new String[]
 
-                               {
-                                   "The leaves are drooping quite badly. "
-                               }
+                  {
+                      "The leaves are drooping quite badly. "
+                  }
           ),
           // IDEAL + 16 days  (maximum for zone)
           new Tracker.Zone(
-              "-X",-1.0, false, true,
-                           new String[]
+              "-X", -1.0, false, true,
+              new String[]
 
-                               {
-                                   "There is nothing left of it but a dried-out husk. "
-                               }
+                  {
+                      "There is nothing left of it but a dried-out husk. "
+                  }
           )
       };
 
