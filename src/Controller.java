@@ -8,11 +8,13 @@ class Controller implements Messageable {
   private GameLoader gameLoader;
 
   private Controller() {
-    gameLoader = new GameLoader(this);
+    gameLoader = new GameLoader();
     System.out.println("SimPlant server live!\n");
+
+    // incoming message will initiate their own threads
     new Thread(new PromptServer(this)).start();
 
-    // run this on main thread
+    // messages from prompt runs on main thread
     new HttpServer(this).run();
 
   }
@@ -20,33 +22,8 @@ class Controller implements Messageable {
   @Override
   public String message(String from, String body) {
     // retrieve game from database or whatever
-    Game game = gameLoader.getGame(from);
-    if ( game == null ) return noGame(from, body); // no current game;
-    // process the incoming message
+    Game game = gameLoader.getGame(from); // always returns a game
     return game.processCommand(body);
   }
-
-  String endGame(Game game) {
-    gameLoader.deleteGame(game.id); // can we return to game's method if it is now null?
-    return "Your plant has been discarded. Would you like to grow a new plant?";
-  }
-
-  String gameOver(Game game, String message) {
-    gameLoader.deleteGame(game.id); // can we return to game's method if it is now null?
-    return message + "Would you like to grow a new plant?";
-  }
-
-  private String noGame(String from, String body) {
-    if ( body.length() > 0 && body.toLowerCase().charAt(0) == 'y' ) {
-      return newGame(from, body);
-    }
-    return "Would you like to grow a new plant?";
-  }
-
-  private String newGame(String from, String body) {
-    Game game = gameLoader.newGame(from);
-    return game.getInitialStatus();
-  }
-
 
 }
