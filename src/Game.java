@@ -62,7 +62,9 @@ class Game {
 
       // PLANT COMMANDS
 
+      // comment this line out to disable status-on-empty
       case "   ":  // EMPTY MESSAGE
+
       case "loo":  // look
       case "che":  // check
       case "sta":  // status
@@ -80,6 +82,7 @@ class Game {
       // GAME COMMANDS
 
       case "hel":  // help
+      case "'he":  // 'help'
         return helpMessage();
       case "end":  // end
       case "qui":  // quit
