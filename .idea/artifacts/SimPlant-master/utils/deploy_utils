@@ -1,6 +1,0 @@
-#!/bin/bash
-#
-#  copy simplant utilities to mnrva
-#
-#
-scp -r control/* mnrva:177/app
