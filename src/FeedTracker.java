@@ -41,7 +41,7 @@ public class FeedTracker extends Tracker {
               false, false,
               new String[]{
                   "Some leaves near the top are shrivelled up. " +
-                  "The tips of some others are yellowing"
+                  "The tips of some others are yellowing. "
               }
           ),
           new Tracker.Zone(
@@ -65,7 +65,7 @@ public class FeedTracker extends Tracker {
               true, false,
               new String[]{
                   "Some of the bottom leaves are turning yellow. ",
-                  "There's some yellowing on the lower leaves"
+                  "There's some yellowing on the lower leaves. "
               }
           ),
           new Tracker.Zone(
