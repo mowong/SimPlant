@@ -95,7 +95,7 @@ class Game {
     }
   }
 
-  private String doAction(PlantAction action){
+  private String doAction(PlantAction action) {
     return checkForDead(plant.action(action));
   }
 
@@ -107,7 +107,8 @@ class Game {
   }
 
   private String helpMessage() {
-    return "This is a not-very-useful help message.";
+    return "You can \'water\', \'feed', \'spray\' or \'check\' your plant. \n " +
+           "You can also \'kill\' your plant to start again.";
   }
 
   private String getUnknownCommandResponse(String message) {
