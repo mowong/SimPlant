@@ -153,6 +153,7 @@ class Game {
     plant = new Plant();
     return "You have a new plant! " +
            plant.action(PlantAction.CHECK) +
+           " " + // action status strips trailing space
            getHowToGetHelp();
   }
 
