@@ -12,11 +12,13 @@ class Controller implements Messageable {
     System.out.println("SimPlant server live!\n");
 
     // messages from prompt runs on a new thread
-    new Thread(new PromptServer(this)).start();
+    Thread promptServer = new Thread(new PromptServer(this));
+    promptServer.start();
 
-    // HTTP server runs on the main thread
+    // HTTP server runs on the a new thread
     // incoming messages will initiate their own threads
-    new HttpServer(this).run();
+    Thread httpServer = new Thread(new HttpServer(this));
+    httpServer.start();
 
   }
 

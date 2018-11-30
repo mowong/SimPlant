@@ -64,12 +64,20 @@ class Plant {
 
   }
 
-  private String getDaysOld() {
-    return lastUpdated == 0 ?
+  int getAge() {
+    return lastUpdated;
+  }
+
+  static String ageString(int age) {
+    return age == 0 ?
                "less than a day old" :
-               (lastUpdated + " " + STEP_STRING +
-                (lastUpdated == 1 ? " " : "s ") + "old"
+               (age + " " + STEP_STRING +
+                (age == 1 ? " " : "s ") + "old"
                );
+  }
+
+  private String getDaysOld() {
+    return ageString(lastUpdated);
   }
 
   private String getStatus() {

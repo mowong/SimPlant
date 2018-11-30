@@ -7,10 +7,11 @@ class Game {
   private GameLoader loader;
   private GameState gameState;
   private GameState lastState;
+  private int oldestPlant;
 
   Game(GameLoader loader, String id) {
     gameState = GameState.NEW_PLAYER;
-
+    oldestPlant = -1;
     //// in a future version Game will call loader with id to delete a player
     // this.id = id;
     // this.loader = loader;
@@ -25,7 +26,7 @@ class Game {
       case GAME_IS_ON:
         return gameIsOn(command);
       case GAME_OVER:
-        return askNew();
+        return gameOver();
       case CONFIRM_NEW:
         return yesOrNo(command) ? confirmNew() : abortNew();
       case CONFIRM_QUIT:
@@ -102,9 +103,15 @@ class Game {
 
   private String checkForDead(String message) {
     if ( plant.isDead() ) {
-      setState(GameState.GAME_OVER);
+      onDead();
     }
     return message;
+  }
+
+  private void onDead() {
+    int age = plant.getAge();
+    if ( age > oldestPlant ) oldestPlant = age;
+    setState(GameState.GAME_OVER);
   }
 
   private String helpMessage() {
@@ -120,7 +127,18 @@ class Game {
   }
 
   private String getHowToGetHelp() {
-    return "(send 'help' for help!)";
+    return "(Send 'help' for help!)";
+  }
+
+  // asks to confirm starting a new plant (new players)
+  private String newPlayer() {
+    return "Welcome to SimPlant! " + askNew();
+  }
+
+  // asks to confirm starting a new plant (returning players)
+  private String gameOver() {
+    return "Your oldest plant was " + Plant.ageString(oldestPlant) + ". "
+           + askNew();
   }
 
   // asks to confirm starting a new plant
@@ -135,6 +153,7 @@ class Game {
     plant = new Plant();
     return "You have a new plant! " +
            plant.action(PlantAction.CHECK) +
+           " " + // action status strips trailing space
            getHowToGetHelp();
   }
 
@@ -159,12 +178,10 @@ class Game {
 
   // quits the game
   private String confirmQuit() {
+    onDead();
     setState(GameState.GAME_OVER);
-    return askNew();
+    return gameOver();
   }
 
-  private String newPlayer() {
-    return "Welcome to SimPlant! " + askNew();
-  }
 
 }
