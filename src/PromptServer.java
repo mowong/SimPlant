@@ -15,10 +15,12 @@ class PromptServer implements Runnable {
     Scanner scanner = new Scanner(System.in);
 
     while ( true ) {
-      System.out.print(">> ");
+      String input = scanner.nextLine();
+      if ( input.equalsIgnoreCase("shutdown") )
+        System.exit(0);
       System.out.println(
           receiver.message(
-              PHONE_NUMBER, scanner.nextLine()
+              PHONE_NUMBER, input
           )
       );
     }
