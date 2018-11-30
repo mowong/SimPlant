@@ -23,6 +23,7 @@ class Controller implements Messageable {
   @Override
   public String message(String from, String body) {
     // retrieve game from database or whatever
+    // and process the command with it
     return gameLoader.getGame(from).processCommand(body);
   }
 
