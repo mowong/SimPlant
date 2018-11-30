@@ -1,23 +1,23 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 class GameLoader {
 
   private Map<String,Game> gameMap;
 
   GameLoader(){
-    gameMap = new HashMap<>();
+    // thread-safe map
+    gameMap = new ConcurrentHashMap<>();
   }
 
+  // always returns a game...
+  // either an existing game or a new game keyed to id
   Game getGame(String id){
-    if (gameMap.containsKey(id)) return gameMap.get(id);
-    return newGame(id);
-  }
-
-  private Game newGame(String id){
-    Game game = new Game(this,id);
-    gameMap.put(id,game);
-    return game;
+    // atomic
+    gameMap.putIfAbsent(id, new Game(this,id));
+    // atomic
+    return gameMap.get(id);
   }
 
   void deleteGame(String id){

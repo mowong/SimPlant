@@ -16,7 +16,8 @@ class Game {
     // this.loader = loader;
   }
 
-  String processCommand(String rawCommand) {
+  // all threads enter through here
+  synchronized String processCommand(String rawCommand) {
     String command = (rawCommand + "   ").substring(0, 3).toLowerCase();
     switch ( gameState ) {
       case NEW_PLAYER:
