@@ -13,7 +13,7 @@ public class BloomTracker implements TrackerInterface {
   private static final Double STOPPING_CHANCE = 0.02; // per step
 
   /**
-   * Comments appended to status message. One is chosen ar random.
+   * Comments appended to status message. One is chosen at random.
    */
   private static final String[] COMMENTS = {
       "So pretty! ",

@@ -7,16 +7,19 @@ class Game {
   private GameLoader loader;
   private GameState gameState;
   private GameState lastState;
+  private int oldestPlant;
 
   Game(GameLoader loader, String id) {
     gameState = GameState.NEW_PLAYER;
-
+    oldestPlant = -1;
     //// in a future version Game will call loader with id to delete a player
     // this.id = id;
     // this.loader = loader;
   }
 
-  String processCommand(String rawCommand) {
+  // all threads enter through here
+  // therefore this is the only method that needs to be synchronized
+  synchronized String processCommand(String rawCommand) {
     String command = (rawCommand + "   ").substring(0, 3).toLowerCase();
     switch ( gameState ) {
       case NEW_PLAYER:
@@ -24,7 +27,7 @@ class Game {
       case GAME_IS_ON:
         return gameIsOn(command);
       case GAME_OVER:
-        return askNew();
+        return gameOver();
       case CONFIRM_NEW:
         return yesOrNo(command) ? confirmNew() : abortNew();
       case CONFIRM_QUIT:
@@ -95,19 +98,26 @@ class Game {
     }
   }
 
-  private String doAction(PlantAction action){
+  private String doAction(PlantAction action) {
     return checkForDead(plant.action(action));
   }
 
   private String checkForDead(String message) {
     if ( plant.isDead() ) {
-      setState(GameState.GAME_OVER);
+      onDead();
     }
     return message;
   }
 
+  private void onDead() {
+    int age = plant.getAge();
+    if ( age > oldestPlant ) oldestPlant = age;
+    setState(GameState.GAME_OVER);
+  }
+
   private String helpMessage() {
-    return "This is a not-very-useful help message.";
+    return "You can \'water\', \'feed', \'spray\' or \'check\' your plant. \n " +
+           "You can also \'kill\' your plant to start again.";
   }
 
   private String getUnknownCommandResponse(String message) {
@@ -118,7 +128,18 @@ class Game {
   }
 
   private String getHowToGetHelp() {
-    return "(send 'help' for help!)";
+    return "(Send 'help' for help!)";
+  }
+
+  // asks to confirm starting a new plant (new players)
+  private String newPlayer() {
+    return "Welcome to SimPlant! " + askNew();
+  }
+
+  // asks to confirm starting a new plant (returning players)
+  private String gameOver() {
+    return "Your oldest plant was " + Plant.ageString(oldestPlant) + ". "
+           + askNew();
   }
 
   // asks to confirm starting a new plant
@@ -133,6 +154,7 @@ class Game {
     plant = new Plant();
     return "You have a new plant! " +
            plant.action(PlantAction.CHECK) +
+           " " + // action status strips trailing space
            getHowToGetHelp();
   }
 
@@ -157,12 +179,10 @@ class Game {
 
   // quits the game
   private String confirmQuit() {
+    onDead();
     setState(GameState.GAME_OVER);
-    return askNew();
+    return gameOver();
   }
 
-  private String newPlayer() {
-    return "Welcome to SimPlant! " + askNew();
-  }
 
 }

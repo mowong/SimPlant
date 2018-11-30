@@ -57,7 +57,7 @@ public class FeedTracker extends Tracker {
               true, false,
               new String[]{
                   "The leaves are a nice deep green. ",
-                  "The leaves look so healthy!"
+                  "The leaves look so healthy! "
               }
           ),
           new Tracker.Zone(
