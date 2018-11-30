@@ -11,12 +11,9 @@ class GameLoader {
     gameMap = new ConcurrentHashMap<>();
   }
 
+  // always returns a game...
+  // either an existing game or a new game keyed to id
   Game getGame(String id){
-    if (gameMap.containsKey(id)) return gameMap.get(id);
-    return newGame(id);
-  }
-
-  private Game newGame(String id){
     // atomic
     gameMap.putIfAbsent(id, new Game(this,id));
     // atomic
