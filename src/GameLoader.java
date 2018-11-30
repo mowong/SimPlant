@@ -1,12 +1,14 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 class GameLoader {
 
   private Map<String,Game> gameMap;
 
   GameLoader(){
-    gameMap = new HashMap<>();
+    // thread-safe map
+    gameMap = new ConcurrentHashMap<>();
   }
 
   Game getGame(String id){
@@ -15,9 +17,10 @@ class GameLoader {
   }
 
   private Game newGame(String id){
-    Game game = new Game(this,id);
-    gameMap.put(id,game);
-    return game;
+    // atomic
+    gameMap.putIfAbsent(id, new Game(this,id));
+    // atomic
+    return gameMap.get(id);
   }
 
   void deleteGame(String id){
