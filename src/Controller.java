@@ -11,10 +11,11 @@ class Controller implements Messageable {
     gameLoader = new GameLoader();
     System.out.println("SimPlant server live!\n");
 
-    // incoming message will initiate their own threads
+    // messages from prompt runs on a new thread
     new Thread(new PromptServer(this)).start();
 
-    // messages from prompt runs on main thread
+    // HTTP server runs on the main thread
+    // incoming messages will initiate their own threads
     new HttpServer(this).run();
 
   }
