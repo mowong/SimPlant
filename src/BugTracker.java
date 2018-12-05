@@ -12,38 +12,44 @@ public class BugTracker extends Tracker {
       {
           // must be in order from largest to smallest
           // minimum number, healthy, deadly, array of status messages
-          new Tracker.Zone("+X", 100.0, false, true,
-                           new String[]{
-                               "It has turned into a plant skelton. ",
-                               "The bugs ate it all up. "
-                           }
+          new Tracker.Zone(
+              "+X", 100.0, false, true,
+              new String[]{
+                  "It has turned into a plant skeleton. ",
+                  "The bugs ate it all up. "
+              }
           ),
-          new Tracker.Zone("+4", 80.0, false, false,
-                           new String[]{
-                               "The bugs are sending scouting parties to find new plants to eat. ",
-                               "There's not much plant left. "
-                           }
+          new Tracker.Zone(
+              "+4", 80.0, false, false,
+              new String[]{
+                  "The bugs are sending scouting parties to find new plants to eat. ",
+                  "There's not much plant left—the bugs have seen to that. ",
+                  "So many bugs!"
+              }
           ),
-          new Tracker.Zone("+3", 65.0, false, false,
-                           new String[]{
-                               "The bugs are starting to take over. ",
-                               "The bugs are making themselves at home. "
-                           }
+          new Tracker.Zone(
+              "+3", 65.0, false, false,
+              new String[]{
+                  "The bugs are starting to take over. ",
+                  "The bugs are making themselves at home. "
+              }
           ),
-          new Tracker.Zone("+2", 30.0, false, false,
-                           new String[]{
-                               "It's getting a buggy. "
-                           }
+          new Tracker.Zone(
+              "+2", 30.0, false, false,
+              new String[]{
+                  "It's getting a buggy. "
+              }
           ),
           new Tracker.Zone("+1", 10, true, false,
                            new String[]{
-                               "What's a few bugs between friends? "
+                               "Are those bugs on the plant? "
                            }
           ),
-          new Tracker.Zone("+0", -1.0, true, false,
-                           new String[]{
-                               null
-                           }
+          new Tracker.Zone(
+              "+0", -1.0, true, false,
+              new String[]{
+                  null
+              }
           )
       };
 

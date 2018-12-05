@@ -19,6 +19,9 @@ class Plant {
   Plant() {
     born = Instant.now();
     trackerMap = new LinkedHashMap<>(4);
+
+    // the order here is important
+    // as the order of the status messages is important
     trackerMap.put(PlantAction.WATER, new WaterTracker());
     trackerMap.put(PlantAction.FEED, new FeedTracker());
     trackerMap.put(PlantAction.SPRAY, new BugTracker());
