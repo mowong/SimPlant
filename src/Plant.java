@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 class Plant {
 
   //  private static final int STEP_SECONDS = 60 * 60 * 24; // one day
-  private static final int STEP_SECONDS = 2; // for testing
+  private static final int STEP_SECONDS = 3; // for testing
   static final String STEP_STRING = "day";
 
   private Instant born;
@@ -36,10 +36,12 @@ class Plant {
   }
 
   boolean isDead() {
+//    return false; // for bloom-testing
     return trackerMap.values().stream().anyMatch(TrackerInterface::isDead);
   }
 
   boolean isHealthy() {
+//    return true; // for bloom-testing
     return trackerMap.values().stream().allMatch(TrackerInterface::isHealthy);
   }
 

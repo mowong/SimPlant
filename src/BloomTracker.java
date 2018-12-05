@@ -41,6 +41,7 @@ public class BloomTracker implements TrackerInterface {
     if ( isBlooming() )
       stepsBlooming++;
 
+    updateBlooming();
   }
 
   private void updateBlooming() {
