@@ -20,34 +20,55 @@ class Game {
   // all threads enter through here
   // therefore this is the only method that needs to be synchronized
   synchronized String processCommand(String rawCommand) {
-    String command = (rawCommand + "   ").substring(0, 3).toLowerCase();
-    switch ( gameState ) {
-      case NEW_PLAYER:
-        return newPlayer();
-      case GAME_IS_ON:
-        return gameIsOn(command);
-      case GAME_OVER:
-        return gameOver();
-      case CONFIRM_NEW:
-        return yesOrNo(command) ? confirmNew() : abortNew();
-      case CONFIRM_QUIT:
-        return yesOrNo(command) ? confirmQuit() : abortQuit();
+    //String command = (rawCommand + "   ").substring(0, 3).toLowerCase();
+    String command = rawCommand.toLowerCase();
+    try {
+      switch ( gameState ) {
+        case NEW_PLAYER:
+          return newPlayer();
+        case GAME_IS_ON:
+          return gameIsOn(command);
+        case GAME_OVER:
+          return gameOver();
+        case CONFIRM_NEW:
+          return yesOrNo(command) ? confirmNew() : abortNew();
+        case CONFIRM_QUIT:
+          return yesOrNo(command) ? confirmQuit() : abortQuit();
+      }
+    } catch ( IllegalArgumentException e ) {
+      switch ( gameState ) {
+        case CONFIRM_NEW:
+          return "Please answer 'yes' or 'no': " + askNew();
+        case CONFIRM_QUIT:
+          return "Please answer 'yes' or 'no': " + askQuit();
+        case GAME_IS_ON:
+          return helpMessage();
+      }
     }
+
     return null;
   }
 
-  private boolean yesOrNo(String command) {
+  private boolean yesOrNo(String command)
+      throws IllegalArgumentException {
     switch ( command ) {
       case "yes": // yes
-      case "ye ":
-      case "y  ":
-      case "ya ":
-      case "ok ":
-      case "for": // for sure
-      case "do ": // do it
+      case "'yes'":
+      case "y":
+      case "ya":
+      case "yea":
+      case "ok":
+      case "for sure": // for sure
+      case "do it": // do it
         return true;
-      default: // no
+      case "no":
+      case "'no'":
+      case "n":
+      case "no way":
+      case "abort":
         return false;
+      default:
+        throw new IllegalArgumentException();
     }
   }
 
@@ -60,41 +81,54 @@ class Game {
     gameState = newState;
   }
 
-  private String gameIsOn(String command) {
+  private String gameIsOn(String command)
+      throws IllegalArgumentException {
     switch ( command ) {
 
       // PLANT COMMANDS
 
-      // comment this line out to disable status-on-empty
-      case "   ":  // EMPTY MESSAGE
-
-      case "loo":  // look
-      case "che":  // check
-      case "sta":  // status
+      case "": // return status message to empty command
+      case "check":
+      case "che":
+      case "c":
+      case "'check'":
+      case "look":
+      case "loo":
+      case "l":
+      case "status":
         return doAction(PlantAction.CHECK);
-      case "wat":  // water
+      case "water":
+      case "wat":
+      case "w":
+      case "'water'":
         return doAction(PlantAction.WATER);
-      case "fee":  // feed
-      case "fer":  // fertilize
+      case "feed":
+      case "fee":
+      case "f":
+      case "fertilize":
+      case "fer":
         return doAction(PlantAction.FEED);
-      case "spr":  // spray
-      case "bug":  // bug-spray
-      case "pes":  // pesticide
+      case "spray":
+      case "spr":
+      case "s":
+      case "bug":
+      case "b":
         return doAction(PlantAction.SPRAY);
 
       // GAME COMMANDS
 
-      case "hel":  // help
-      case "'he":  // 'help'
+      case "help":  // help
+      case "hel":
+      case "h":
+      case "'help'":  // 'help'
         return helpMessage();
       case "end":  // end
-      case "qui":  // quit
-      case "exi":  // exit
-      case "kil":  // kill
-        return requestQuit();
+      case "quit":  // quit
+      case "exit":  // exit
+      case "kill":  // kill
+        return askQuit();
       default:
-        return getUnknownCommandResponse(command);
-
+        throw new IllegalArgumentException();
     }
   }
 
@@ -104,27 +138,21 @@ class Game {
 
   private String checkForDead(String message) {
     if ( plant.isDead() ) {
-      onDead();
+      updateOldestPlant();
+      setState(GameState.GAME_OVER);
+      return message + gameOver();
     }
     return message;
   }
 
-  private void onDead() {
+  private void updateOldestPlant() {
     int age = plant.getAge();
     if ( age > oldestPlant ) oldestPlant = age;
-    setState(GameState.GAME_OVER);
   }
 
   private String helpMessage() {
     return "You can \'water\', \'feed', \'spray\' or \'check\' your plant. \n " +
            "You can also \'kill\' your plant to start again.";
-  }
-
-  private String getUnknownCommandResponse(String message) {
-    return (message.length() == 0 ?
-                "Please send a command. " :
-                "I don't know how to '" + message + "'. "
-           ) + getHowToGetHelp();
   }
 
   private String getHowToGetHelp() {
@@ -141,6 +169,7 @@ class Game {
     return "Your oldest plant was " + Plant.ageString(oldestPlant) + ". "
            + askNew();
   }
+
 
   // asks to confirm starting a new plant
   private String askNew() {
@@ -160,12 +189,12 @@ class Game {
 
   // returns to previous state
   private String abortNew() {
-    revertState();
+    setState(GameState.GAME_OVER); // revertState();
     return "Let me know when you change your mind! (Any text will do.)";
   }
 
   // asks to confirm quitting a plant
-  private String requestQuit() {
+  private String askQuit() {
     setState(GameState.CONFIRM_QUIT);
     return "Are you sure you want to quit the game? " +
            "(Your plant will be lost!)";
@@ -173,13 +202,13 @@ class Game {
 
   // returns to previous state
   private String abortQuit() {
-    revertState();
+    setState(GameState.GAME_IS_ON); // revertState();
     return "Ok good. " + doAction(PlantAction.CHECK);
   }
 
   // quits the game
   private String confirmQuit() {
-    onDead();
+    updateOldestPlant();
     setState(GameState.GAME_OVER);
     return gameOver();
   }
