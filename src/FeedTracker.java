@@ -77,7 +77,7 @@ public class FeedTracker extends Tracker {
           new Tracker.Zone(
               "-X", -1.0, false, true,
               new String[]{
-                  "The leaves have all brown and crinkly. ",
+                  "The leaves have gone all brown and crinkly. ",
                   "The plant is a pale yellow ghost of its former self. "
               }
           )

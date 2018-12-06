@@ -35,7 +35,7 @@ class WaterTracker extends Tracker {
               "+X", 100.0, false, true,
               new String[]{
                   "It has drowned. ",
-                  "It got so wet it developed a gnarly fungus"
+                  "It got so wet it developed a gnarly fungus "
                   + "that took over everything. ",
                   "There is so much water it suffocated. "
               }
