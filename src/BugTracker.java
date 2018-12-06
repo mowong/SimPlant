@@ -24,7 +24,7 @@ public class BugTracker extends Tracker {
               new String[]{
                   "The bugs are sending scouting parties to find new plants to eat. ",
                   "There's not much plant left—the bugs have seen to that. ",
-                  "So many bugs!"
+                  "So many bugs! "
               }
           ),
           new Tracker.Zone(
@@ -37,7 +37,7 @@ public class BugTracker extends Tracker {
           new Tracker.Zone(
               "+2", 30.0, false, false,
               new String[]{
-                  "It's getting a buggy. "
+                  "It's getting a little buggy. "
               }
           ),
           new Tracker.Zone("+1", 10, true, false,
