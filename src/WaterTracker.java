@@ -35,8 +35,8 @@ class WaterTracker extends Tracker {
               "+X", 100.0, false, true,
               new String[]{
                   "It has drowned. ",
-                  "Your plant got so wet it developed a gnarly " +
-                  "fungus that took over everything. ",
+                  "It got so wet it developed a gnarly fungus"
+                  + "that took over everything. ",
                   "There is so much water it suffocated. "
               }
           ),
@@ -56,8 +56,7 @@ class WaterTracker extends Tracker {
               new String[]
 
                   {
-                      "The leaves are a little bit limp. ",
-                      "It looks a little sad. "
+                      "The leaves are a little bit limp. "
                   }
           ),
           // IDEAL ZONE
