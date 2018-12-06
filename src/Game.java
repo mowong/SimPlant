@@ -173,7 +173,7 @@ class Game {
   private String betweenGames() {
     return (isNewPlayer()
                 ? "Welcome to SimPlant! "
-                : "Welcome back to Simplant! Your oldest plant was "
+                : "Welcome back to SimPlant! Your oldest plant was "
                   + Plant.ageString(oldestPlant) + ". "
            ) + askNew();
   }
