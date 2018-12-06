@@ -78,7 +78,7 @@ public class FeedTracker extends Tracker {
               "-X", -1.0, false, true,
               new String[]{
                   "The leaves have all brown and crinkly. ",
-                  "The leaves are falling off. "
+                  "The plant is a pale yellow ghost of its former self. "
               }
           )
       };
