@@ -5,12 +5,14 @@ public class BloomTracker implements TrackerInterface {
   /**
    * Chance of plant starting to bloom increments this amount every day.
    */
-  private static final Double STARTING_CHANCE = 0.05; // per step
+  private static final Double STARTING_CHANCE_MULTIPLIER = 0.05;
+  private static final Double STARTING_CHANCE_EXPONENT = 6.0;
 
   /**
    * Chance of plant stopping to bloom increments this amount every day.
    */
-  private static final Double STOPPING_CHANCE = 0.02; // per step
+  private static final Double STOPPING_CHANCE_MULTIPLIER = 0.02;
+  private static final Double STOPPING_CHANCE_EXPONENT = 3.0;
 
   /**
    * Comments appended to status message. One is chosen at random.
@@ -50,18 +52,27 @@ public class BloomTracker implements TrackerInterface {
 
       // plant stops blooming if it has become unhealthy
       // also has increasing chance to stop every day
-      if ( !plant.isHealthy() ||
-           Math.random() < STOPPING_CHANCE * stepsBlooming ) {
+
+      double chance = Math.pow(
+          STOPPING_CHANCE_MULTIPLIER * stepsBlooming,
+          STOPPING_CHANCE_EXPONENT
+      );
+
+      if ( !plant.isHealthy() || Math.random() < chance )
         stepsBlooming = -1;
-      }
 
     } else { // not blooming
 
+      double chance = Math.pow(
+          STARTING_CHANCE_MULTIPLIER * stepsHealthy,
+          STARTING_CHANCE_EXPONENT
+      );
+
       // plant has a increasing chance to start blooming every day
-      if ( Math.random() < STARTING_CHANCE * stepsHealthy ) {
+      if ( Math.random() < chance )
         stepsBlooming = 0;
-      }
-    }
+
+    } // end if ( isBlooming() )
 
   }
 
