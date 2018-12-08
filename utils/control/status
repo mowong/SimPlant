@@ -5,7 +5,7 @@
 #
 
 
-if [[ "" = `ps -x | grep java[^*]*simplant | cut -d" " -f1` ]]; then
+if [[ "" = `ps -x | grep java[^*]*simplant | awk '{print($1)}'` ]]; then
   echo "SimPlant is not running."
   exit 1
 else
