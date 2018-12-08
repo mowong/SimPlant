@@ -93,6 +93,9 @@ class Game {
 
       // PLANT COMMANDS
 
+      // TODO: put these definitions in the trackers classes
+      //       or in the PlantAction enum
+
       case "": // return status message to empty command
       case "check":
       case "che":
@@ -102,6 +105,8 @@ class Game {
       case "loo":
       case "l":
       case "status":
+      case "stat":
+      case "sta":
         return doAction(PlantAction.CHECK);
       case "water":
       case "wat":
