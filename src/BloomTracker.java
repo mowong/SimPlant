@@ -5,14 +5,14 @@ public class BloomTracker implements TrackerInterface {
   /**
    * Chance of plant starting to bloom increments this amount every day.
    */
-  private static final Double STARTING_CHANCE_MULTIPLIER = 0.05;
+  private static final Double STARTING_CHANCE_MULTIPLIER = 0.047619;
   private static final Double STARTING_CHANCE_EXPONENT = 6.0;
 
   /**
    * Chance of plant stopping to bloom increments this amount every day.
    */
-  private static final Double STOPPING_CHANCE_MULTIPLIER = 0.02;
-  private static final Double STOPPING_CHANCE_EXPONENT = 3.0;
+  private static final Double STOPPING_CHANCE_MULTIPLIER = 0.071429;
+  private static final Double STOPPING_CHANCE_EXPONENT = 4.0;
 
   /**
    * Comments appended to status message. One is chosen at random.
