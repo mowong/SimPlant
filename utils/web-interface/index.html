@@ -30,28 +30,28 @@
   $(function() {
     $('textarea').focus();
   });
-  
+
   // action to take when form is submitted
   setAction();
 
   // update action when server input is changed
   $('#server').change(function(){
     setAction();
-  });  
+  });
 
   function setAction(){
     server = $('#server').val();
-    if ( server === "" ) server = "mnrva.net:1771";
-    $("form").attr("action", "http://" + server + "/web");
+    if ( server === "" ) server = "/simplant-server";
+    $("form").attr("action", server + "/web");
   }
-  
+
   // when the form is submitted
   $('form').submit(function(e) {
     e.preventDefault();      // don't submit multiple times
     this.submit();          // Submit form (for realz)
     $('textarea').val(''); // blank the input
   });
-  
+
   // when the enter key is pressed in the textarea
   $('textarea').keypress(function(event) {
     if (event.keyCode === 13) { // ENTER key
