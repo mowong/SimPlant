@@ -7,7 +7,7 @@
 $(dirname "$0")/status
 [[ $? -ne 0 ]] && exit 1
 
-kill `ps -x | grep java[^*]*simplant | cut -d" " -f1`
+kill `ps -x | grep java[^*]*simplant | awk '{print($1)}'`
 sleep 1
 
 $(dirname "$0")/status
