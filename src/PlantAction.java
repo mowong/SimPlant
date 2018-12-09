@@ -5,6 +5,7 @@ public enum PlantAction {
   SPRAY("Pesticides applied. "),
   BLOOM("You have somehow made your plant bloom. "), // This shouldn't happen.
   CAT("The cat came by.");
+  
   private String feedback;
 
   PlantAction(String feedback) {
